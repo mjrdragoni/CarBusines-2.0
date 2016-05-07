@@ -1,0 +1,34 @@
+Trun = (navigation, SQLsentences, displaysPanels, disablesButtons, enablesbuttons, displaysButtons);
+
+btnfirst btnlast btnprevious btnnext btnadd btndel btnsave btncancel btnclose
+
+
+fieldValue
+enablesCheck
+post
+operation_include
+PanelRecord
+FrmPattern: TFrmPattern;
+
+  //Armazena a sentença SQL atual
+  strCurrentSQL: String;
+  //Define o tipo do campo ID
+  IDType: integer;
+  //Armazena a senteça SQL
+  strSQL: String;
+  //Define o nome da tabela em uso
+  tableName: String;
+  //Define operação de inclusão
+  Operation_include: Integer;
+  //Define as ações de inclusão, alteração e exlcusão
+  editionMode: String;
+  //Define o titulo da Janelas Filhas
+  windowName: String;
+  //Armazena datas no formato String
+  valdata1, valdata2, val1, val2: String;
+  //Armazena o nome de uma tarefa em Andamento
+  assignment: String;
+  //Contole do botão pesquisar da Janela PesqData
+
+  assignmentlick: integer;
+  //Montagem da mensagem de informação
