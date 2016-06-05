@@ -9,7 +9,7 @@ uses
   Vcl.ExtCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client;
+  FireDAC.Comp.Client, Vcl.Menus;
 
 type
     Trun = (navigation, SQLsentences, displaysPanels, disablesButtons, enablesbuttons, displaysButtons);
@@ -34,7 +34,7 @@ type
     ToolButton16: TToolButton;
     ImageList2: TImageList;
     ImageList3: TImageList;
-    btnclose: TToolButton;
+    btnprint: TToolButton;
     statusBar1: TstatusBar;
     Panel1: TPanel;
     Label1: TLabel;
@@ -45,18 +45,36 @@ type
     PanelRecord: TPanel;
     FDTable: TFDTable;
     DSPattern: TDataSource;
+    ToolButton1: TToolButton;
+    btnclose: TToolButton;
+    PopupMenu1: TPopupMenu;
+    Cdigo1: TMenuItem;
+    odososregistrosdessatabela1: TMenuItem;
+    N1: TMenuItem;
+    Registrosincludosnoperodo1: TMenuItem;
+    Registrosalteradosnoperodo1: TMenuItem;
+    N2: TMenuItem;
+    Registrosbloqueadosparaouso1: TMenuItem;
+    ImageList4: TImageList;
     procedure btnfirstClick(Sender: TObject);
     procedure btnpreviousClick(Sender: TObject);
     procedure btnnextClick(Sender: TObject);
     procedure btnlastClick(Sender: TObject);
     procedure btnaddClick(Sender: TObject);
-    procedure btncloseClick(Sender: TObject);
     procedure btncancelClick(Sender: TObject);
     procedure btnsaveClick(Sender: TObject);
     procedure btndelClick(Sender: TObject);
     procedure btnchangeClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btncloseClick(Sender: TObject);
+    procedure btnokClick(Sender: TObject);
+    procedure odososregistrosdessatabela1Click(Sender: TObject);
+    procedure Registrosincludosnoperodo1Click(Sender: TObject);
+    procedure Cdigo1Click(Sender: TObject);
+    procedure Registrosalteradosnoperodo1Click(Sender: TObject);
+    procedure Registrosbloqueadosparaouso1Click(Sender: TObject);
+    procedure btnsearchClick(Sender: TObject);
   private
     Frun: Trun;
     Procedure Setrun(const Value: Trun);
@@ -98,7 +116,7 @@ implementation
 
 {$R *.dfm}
 
-uses  UnitLogin, UnitMainMenu;
+uses  UnitLogin, UnitMainMenu, UnitSearchDate, UnitSearchString;
 
 procedure TFrmPattern.btnaddClick(Sender: TObject);
 begin
@@ -232,6 +250,18 @@ begin
   run:= displaysPanels;
 end;
 
+procedure TFrmPattern.btnokClick(Sender: TObject);
+begin
+   StatusBar1.Panels[2].Text:=  'Seleção de registro pelo Código';
+
+    FDTable.Filter:= 'id = ' + #39 + fieldvalue.text    + #39;
+    FDTable.Filtered:= True;
+
+    run:= displaysPanels;
+    run:= navigation;
+    run:= enablesbuttons;
+end;
+
 procedure TFrmPattern.btnpreviousClick(Sender: TObject);
 begin
   FDTable.prior;
@@ -264,6 +294,17 @@ begin
     labelStatus.Visible:= False;
 end;
 
+procedure TFrmPattern.btnsearchClick(Sender: TObject);
+begin
+pesqString.ShowModal;
+end;
+
+procedure TFrmPattern.Cdigo1Click(Sender: TObject);
+begin
+  fieldValue.Clear;
+  fieldValue.SetFocus;
+end;
+
 procedure TFrmPattern.FormActivate(Sender: TObject);
 begin
 
@@ -281,6 +322,82 @@ procedure TFrmPattern.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 FDTable.Close();
 FrmMainMenu.FDQueryUsers.close;
+end;
+
+procedure TFrmPattern.odososregistrosdessatabela1Click(Sender: TObject);
+begin
+  FDTable.Filter:= '';
+  FDTable.Filtered:= True;
+
+  run:= displaysPanels;
+  run:= navigation;
+  run:= enablesbuttons;
+end;
+
+procedure TFrmPattern.Registrosalteradosnoperodo1Click(Sender: TObject);
+begin
+ assignment:= 'Pesquisa de registros alterados '+
+    'no período';
+
+  pesqData.ShowModal;
+
+
+  if assignmentlick = 1 then
+  begin
+    StatusBar1.Panels[2].Text:=
+    'Registros incluidos entre: ' + valdata1 + ' e ' + valdata2;
+
+    //FDTabela.Filtered:= False;
+    FDTable.Filter:= 'date_alt >= ' + #39 +
+    FormatDateTime('DD/MM/YYY', strtodate(valdata1)) + #39 + ' AND date_alt <= ' + #39 +
+    FormatDateTime('DD/MM/YYY', strtodate(valdata2))+ #39;
+
+    FDTable.Filtered:= True;
+
+    run:= displaysPanels;
+    run:= navigation;
+    run:= enablesbuttons;
+  end;
+end;
+
+procedure TFrmPattern.Registrosbloqueadosparaouso1Click(Sender: TObject);
+begin
+ StatusBar1.Panels[2].Text:=
+    'Seleção de registros bloqueados';
+
+    FDTable.Filter:= 'status = ' + #39 + 'N'
+    + #39;
+    FDTable.Filtered:= True;
+
+    run:= displaysPanels;
+    run:= navigation;
+    run:= enablesbuttons;
+end;
+
+procedure TFrmPattern.Registrosincludosnoperodo1Click(Sender: TObject);
+begin
+  assignment:= 'Pesquisa de registros incluídos '+
+    'no período';
+
+  pesqData.ShowModal;
+
+
+  if assignmentlick = 1 then
+  begin
+    StatusBar1.Panels[2].Text:=
+    'Registros incluidos entre: ' + valdata1 + ' e ' + valdata2;
+
+    //FDTabela.Filtered:= False;
+    FDTable.Filter:= 'date_add >= ' + #39 +
+    FormatDateTime('DD/MM/YYY', strtodate(valdata1)) + #39 + ' AND date_add <= ' + #39 +
+    FormatDateTime('DD/MM/YYY', strtodate(valdata2))+ #39;
+
+    FDTable.Filtered:= True;
+
+    run:= displaysPanels;
+    run:= navigation;
+    run:= enablesbuttons;
+  end;
 end;
 
 procedure TFrmPattern.Setrun(const Value: Trun);

@@ -11,7 +11,8 @@ uses
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ComCtrls,
   Vcl.AppEvnts, Vcl.ExtCtrls, Vcl.ToolWin, Vcl.ActnCtrls, Vcl.ActnMenus,
   System.ImageList, Vcl.ImgList, Vcl.Imaging.jpeg, VCLTee.TeeFilters,
-  Vcl.StdStyleActnCtrls, Vcl.XPStyleActnCtrls;
+  Vcl.StdStyleActnCtrls, Vcl.XPStyleActnCtrls, Vcl.StdCtrls,
+  Vcl.Imaging.pngimage;
 
 type
   TFrmMainMenu = class(TForm)
@@ -35,6 +36,10 @@ type
     Access_cars: TAction;
     ActionMainMenuBar1: TActionMainMenuBar;
     Access_sales: TAction;
+    Access_ExpImp: TAction;
+    Access_WebReserves: TAction;
+    Access_Reserves: TAction;
+    Image1: TImage;
     procedure FormActivate(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure Timer1Timer(Sender: TObject);
@@ -64,6 +69,14 @@ type
     procedure Access_RentUpdate(Sender: TObject);
     procedure Access_salesExecute(Sender: TObject);
     procedure Access_salesUpdate(Sender: TObject);
+    procedure Access_ExpImpExecute(Sender: TObject);
+    procedure Access_ExpImpUpdate(Sender: TObject);
+    procedure RelSalesExecute(Sender: TObject);
+    procedure RelRentsExecute(Sender: TObject);
+    procedure Access_WebReservesExecute(Sender: TObject);
+    procedure Access_WebReservesUpdate(Sender: TObject);
+    procedure Access_ReservesUpdate(Sender: TObject);
+    procedure ApplicationEvents1Exception(Sender: TObject; E: Exception);
   private
     { Private declarations }
   public
@@ -79,7 +92,8 @@ implementation
 
 uses UnitDM, UnitLogin, UnitUsers, UnitClients, UnitDepartments, UnitOfficials,
   UnitPositions, UnitProviders, UnitWorkshops, UnitMaintenance, UnitBrands,
-  UnitCars, UnitModels, UnitRents, UnitSales;
+  UnitCars, UnitModels, UnitRents, UnitSales, UnitExpotaImportaWeb,
+  UnitRelRents, UnitRelSale, UnitWebReserves;
 
 procedure TFrmMainMenu.AccessUsersExecute(Sender: TObject);
 begin
@@ -168,6 +182,116 @@ strCurrentSQL:='SELECT * FROM users WHERE login = ' + #39 + users + #39;
 
         FDQueryUsers.Close;
 
+end;
+
+procedure TFrmMainMenu.ApplicationEvents1Exception(Sender: TObject;
+  E: Exception);
+var
+ mensagem: string;
+ Pos1, Pos2: integer;
+begin
+
+if Pos(UpperCase('is not a valid date'), UpperCase(E.Message)) <> 0 then
+  mensagem:='Data inválida, proceda a correção.'
+ else if Pos(UpperCase('must have a value'), UpperCase(E.Message)) <> 0 then
+ begin
+  Pos1:=Pos('''', E.Message);
+  mensagem:=E.Message;
+  Delete(mensagem, Pos1, 1);
+  Pos2:=Pos('''', mensagem);
+  mensagem:=copy(E.Message, Pos1 + 1, Pos2 - Pos1);
+  mensagem := 'É obrigatório o preenchimento do campo '+ mensagem + '.';
+ end
+ else if Pos(UpperCase('key violation'), UpperCase(E.Message)) <> 0 then
+  mensagem := 'Houve violação de Chave. Registro já incluido.'
+ else if Pos(UpperCase('is not a valid time'), UpperCase(E.Message)) <> 0 then
+  mensagem := 'Hora inválida, proceda a correção.'
+ else if Pos(UpperCase('is not a valid float'), UpperCase(E.Message)) <> 0 then
+ begin
+  Pos1 :=Pos('''', E.Message);
+  mensagem :=E.Message;
+  Delete(mensagem, Pos1, 1);
+  Pos2 := Pos('''', mensagem);
+  mensagem :=copy(E.Message, Pos1 + 1, Pos2 - Pos1);
+  mensagem := 'O valor '+ mensagem + ' não é válido.';
+ end
+ else if Pos(UpperCase('field value required'), UpperCase(E.Message)) <> 0 then
+ begin
+  Pos1 :=Pos('column ', E.Message) + 7;
+  Pos2 :=Pos(',', E.Message);
+  mensagem :=copy(E.Message, Pos1, Pos2 - Pos1);
+  mensagem := 'Campo ' + mensagem + ' deve ser preenchido.';
+ end
+ else if Pos(UpperCase('UNIQUE KEY'), UpperCase(E.Message)) <> 0
+ then
+  mensagem := 'Não é permitido valor duplicado. '
+ else if Pos(UpperCase('FOREIGN KEY'), UpperCase(E.Message)) <> 0 then
+  mensagem := 'Operação não permitida, registro vinculado em outra tabela está faltando.'
+ else if Pos('VIOLATION OF PRIMARY OR UNIQUE KEY CONSTRAINT', UpperCase(E.Message)) <> 0
+ then
+  mensagem := 'Registro Duplicado'+#13#10+Copy(UpperCase(E.Message),Pos('VIOLATION OF PRIMARY OR UNIQUE KEY CONSTRAINT',UpperCase(E.Message))+47,100)
+ else if (Pos(UpperCase('MUST APPLY UPDATES BEFORE REFRESHING DATA'),
+ UpperCase(E.Message)) <> 0) then
+  mensagem := 'É necessário aplicar as alterações antes de atualizar os dados.'
+  else if Pos('VIOLATION OF PRIMARY OR UNIQUE KEY CONSTRAINT', UpperCase(E.Message)) <> 0
+ then
+  mensagem := 'Registro Duplicado'
+ else if (Pos(UpperCase('LOST CONNECTION TO MYSQL'), UpperCase(E.Message)) <> 0) then
+  mensagem := #32 +#32+#32+#32+#32+#32'Não foi possivel conectar com o Servidor Web.'+ #13 + #13 +
+  'Verifique sua Conexão com a Internet e Tente Novamente.'
+ else
+  mensagem := 'Ocorreu o seguinte erro: ' + #13 +UpperCase(E.Message);
+ MessageDlg(mensagem, mtError, [mbOk], 0);
+
+
+end;
+
+procedure TFrmMainMenu.Access_WebReservesExecute(Sender: TObject);
+begin
+frmwebreserve.showmodal;
+end;
+
+procedure TFrmMainMenu.Access_WebReservesUpdate(Sender: TObject);
+var strCurrentSQL: string;
+begin
+
+strCurrentSQL:='SELECT * FROM users WHERE login = ' + #39 + users + #39;
+
+      FDQueryUsers.Close;
+      FDQueryUsers.SQL.Clear;
+      FDQueryUsers.SQL.Add(strCurrentSQL);
+      FDQueryUsers.Open();
+
+      if FDQueryUsers.FieldByName('webreserves').AsString = 'Y' then
+        Access_WebReserves.Enabled:= True
+      else
+        Access_WebReserves.Enabled:= False;
+        FDQueryUsers.Close;
+end;
+
+procedure TFrmMainMenu.Access_ExpImpExecute(Sender: TObject);
+begin
+ FrmExpottImport.ShowModal;
+end;
+
+
+
+procedure TFrmMainMenu.Access_ExpImpUpdate(Sender: TObject);
+var strCurrentSQL: string;
+begin
+
+strCurrentSQL:='SELECT * FROM users WHERE login = ' + #39 + users + #39;
+
+      FDQueryUsers.Close;
+      FDQueryUsers.SQL.Clear;
+      FDQueryUsers.SQL.Add(strCurrentSQL);
+      FDQueryUsers.Open();
+
+      if FDQueryUsers.FieldByName('expimp').AsString = 'Y' then
+        Access_ExpImp.Enabled:= True
+      else
+        Access_ExpImp.Enabled:= False;
+        FDQueryUsers.Close;
 end;
 
 procedure TFrmMainMenu.Access_salesExecute(Sender: TObject);
@@ -294,6 +418,16 @@ begin
 
 end;
 
+procedure TFrmMainMenu.RelRentsExecute(Sender: TObject);
+begin
+FrmRelRents.showmodal;
+end;
+
+procedure TFrmMainMenu.RelSalesExecute(Sender: TObject);
+begin
+  FrmRelSale.showmodal;
+end;
+
 procedure TFrmMainMenu.Access_ModelsExecute(Sender: TObject);
 begin
 FrmModels.showmodal;
@@ -337,9 +471,9 @@ strCurrentSQL:='SELECT * FROM users WHERE login = ' + #39 + users + #39;
 
 
     if FDQueryUsers.FieldByName('officials').AsString = 'Y' then
-        Access_Positions.Enabled:= True
+        Access_Officials.Enabled:= True
       else
-        Access_Positions.Enabled:= False;
+        Access_Officials.Enabled:= False;
         FDQueryUsers.Close;
 
 end;
@@ -360,10 +494,10 @@ strCurrentSQL:='SELECT * FROM users WHERE login = ' + #39 + users + #39;
       FDQueryUsers.SQL.Add(strCurrentSQL);
       FDQueryUsers.Open();
 
-      if FDQueryUsers.FieldByName('Positions').AsString = 'Y' then
-        Access_Officials.Enabled:= True
+      if FDQueryUsers.FieldByName('positions').AsString = 'Y' then
+        Access_Positions.Enabled:= True
       else
-        Access_Officials.Enabled:= False;
+        Access_Positions.Enabled:= False;
         FDQueryUsers.Close;
 end;
 
@@ -415,6 +549,24 @@ strCurrentSQL:='SELECT * FROM users WHERE login = ' + #39 + users + #39;
         FDQueryUsers.Close;
 end;
 
+
+procedure TFrmMainMenu.Access_ReservesUpdate(Sender: TObject);
+var strCurrentSQL: string;
+begin
+
+strCurrentSQL:='SELECT * FROM users WHERE login = ' + #39 + users + #39;
+
+      FDQueryUsers.Close;
+      FDQueryUsers.SQL.Clear;
+      FDQueryUsers.SQL.Add(strCurrentSQL);
+      FDQueryUsers.Open();
+
+      if FDQueryUsers.FieldByName('rentals').AsString = 'Y' then
+        Access_Reserves.Enabled:= True
+      else
+        Access_Reserves.Enabled:= False;
+        FDQueryUsers.Close;
+end;
 
 procedure TFrmMainMenu.Timer1Timer(Sender: TObject);
 begin

@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.ImageList,
   Vcl.ImgList, Vcl.StdCtrls, Vcl.Buttons, Vcl.DBCtrls, Vcl.ExtCtrls,
-  Vcl.ComCtrls, Vcl.ToolWin, Vcl.Mask ;
+  Vcl.ComCtrls, Vcl.ToolWin, Vcl.Mask, Vcl.Menus ;
 
 type
   TFrmUsers = class(TFrmPattern)
@@ -34,6 +34,12 @@ type
     DBCheckBox11: TDBCheckBox;
     DBCheckBox12: TDBCheckBox;
     DBCheckBox13: TDBCheckBox;
+    DBCheckBox14: TDBCheckBox;
+    DBCheckBox15: TDBCheckBox;
+    DBCheckBox16: TDBCheckBox;
+    DBCheckBox17: TDBCheckBox;
+    DBCheckBox18: TDBCheckBox;
+    DBCheckBox19: TDBCheckBox;
     FDTableid: TFDAutoIncField;
     FDTablelogin: TStringField;
     FDTablepass: TStringField;
@@ -53,12 +59,12 @@ type
     FDTableofficials: TStringField;
     FDTablemodels: TStringField;
     FDTablebrands: TStringField;
+    FDTableexpimp: TStringField;
     FDTabledate_add: TSQLTimeStampField;
     FDTabledate_alt: TSQLTimeStampField;
     FDTablestatus: TStringField;
-    DBCheckBox14: TDBCheckBox;
-    DBCheckBox15: TDBCheckBox;
-    DBCheckBox16: TDBCheckBox;
+    FDTablereserves: TStringField;
+    FDTablewebreserves: TStringField;
     procedure btnaddClick(Sender: TObject);
   private
     { Private declarations }
@@ -82,7 +88,6 @@ FDTable.FieldByName('add_data').AsString:= 'N';
 FDTable.FieldByName('delete_data').AsString := 'N';
 FDTable.FieldByName('change_data').AsString:= 'N';
 FDTable.FieldByName('users').AsString := 'N';
-FDTable.FieldByName('sales').AsString:= 'N';
 FDTable.FieldByName('maint_vehicles').AsString := 'N';
 FDTable.FieldByName('workshops').AsString := 'N';
 FDTable.FieldByName('clients').AsString:= 'N';
@@ -95,6 +100,10 @@ FDTable.FieldByName('officials').AsString:= 'N';
 FDTable.FieldByName('sales').AsString:= 'N';
 FDTable.FieldByName('brands').AsString:= 'N';
 FDTable.FieldByName('models').AsString:= 'N';
+FDTable.FieldByName('expimp').AsString:= 'N';
+FDTable.FieldByName('webreserves').AsString:= 'N';
+FDTable.FieldByName('reserves').AsString:= 'N';
+
 
 end;
 

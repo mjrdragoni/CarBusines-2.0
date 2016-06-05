@@ -66,7 +66,7 @@ type
     FDQueryVehiclesII: TFDQuery;
     FDTableCars: TFDTable;
     FDTableSalesItens: TFDTable;
-    FDTableSalesItenssales_itens_id: TFDAutoIncField;
+    a: TFDAutoIncField;
     FDTableSalesItensid_sale: TIntegerField;
     FDTableSalesItensid_car: TIntegerField;
     FDTableSalesItensid_brand: TIntegerField;
@@ -109,6 +109,8 @@ type
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FDTableSalesItensNewRecord(DataSet: TDataSet);
+    procedure ToolButton2Click(Sender: TObject);
+    procedure btnprintClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -123,7 +125,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM;
+uses UnitDM, UnitRelSale;
 
 procedure TFrmSales.BtnAdcionarClick(Sender: TObject);
 begin
@@ -238,6 +240,12 @@ end;
 
 
 
+
+procedure TFrmSales.btnprintClick(Sender: TObject);
+begin
+  inherited;
+  FrmRelSale.ShowModal;
+end;
 
 procedure TFrmSales.DBLookupComboBox3MouseEnter(Sender: TObject);
 var  air_conditioning, power_steering, power_windows,automatic_exchange,
@@ -404,6 +412,12 @@ FDQueryClients.close();
 FDQueryOfficial.close();
 FDQueryVehicles.close();
 FDQueryVehiclesII.close();
+end;
+
+procedure TFrmSales.ToolButton2Click(Sender: TObject);
+begin
+  inherited;
+FrmRelSale.showmodal;
 end;
 
 end.

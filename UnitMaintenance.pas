@@ -20,9 +20,7 @@ type
     Label10: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    DBEdit3: TDBEdit;
     DBEdit4: TDBEdit;
-    DBEdit6: TDBEdit;
     DBMemo1: TDBMemo;
     DBLookupComboBox1: TDBLookupComboBox;
     DBLookupComboBox2: TDBLookupComboBox;
@@ -40,8 +38,13 @@ type
     FDTabledate_add: TSQLTimeStampField;
     FDTabledate_alt: TSQLTimeStampField;
     FDTablestatus: TStringField;
+    DateTimePicker1: TDateTimePicker;
+    DateTimePicker2: TDateTimePicker;
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DateTimePicker1Change(Sender: TObject);
+    procedure DateTimePicker2Change(Sender: TObject);
+    procedure btnprintClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,7 +58,25 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM;
+uses UnitDM, UnitRelMaint;
+
+procedure TFrmMaintenance.btnprintClick(Sender: TObject);
+begin
+  inherited;
+  FrmRelMaint.Showmodal;
+end;
+
+procedure TFrmMaintenance.DateTimePicker1Change(Sender: TObject);
+begin
+  inherited;
+FDTable.FieldByName('startdate').AsDateTime:= DateTimePicker1.DateTime;
+end;
+
+procedure TFrmMaintenance.DateTimePicker2Change(Sender: TObject);
+begin
+  inherited;
+FDTable.FieldByName('enddate').AsDateTime:= DateTimePicker2.DateTime;
+end;
 
 procedure TFrmMaintenance.FormActivate(Sender: TObject);
 begin

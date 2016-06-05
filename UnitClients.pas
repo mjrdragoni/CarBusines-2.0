@@ -51,6 +51,8 @@ type
     procedure btnchangeClick(Sender: TObject);
     procedure btnaddClick(Sender: TObject);
     procedure tipocliExit(Sender: TObject);
+    procedure ToolButton2Click(Sender: TObject);
+    procedure btnprintClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -65,7 +67,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM;
+uses UnitDM, UnitRelClients;
 
 procedure TFrmClients.btnaddClick(Sender: TObject);
 begin
@@ -77,6 +79,12 @@ procedure TFrmClients.btnchangeClick(Sender: TObject);
 begin
   inherited;
 tipocli.Enabled:= false;
+end;
+
+procedure TFrmClients.btnprintClick(Sender: TObject);
+begin
+  inherited;
+  FrmRelClients.ShowModal;
 end;
 
 procedure TFrmClients.FormActivate(Sender: TObject);
@@ -142,6 +150,12 @@ begin
   FDtable.FieldByName('CPF_CNPJ').EditMask:= '00.000.000/0000-00;1;_';
 end;
 
+end;
+
+procedure TFrmClients.ToolButton2Click(Sender: TObject);
+begin
+  inherited;
+  FrmRelClients.showmodal;
 end;
 
 end.

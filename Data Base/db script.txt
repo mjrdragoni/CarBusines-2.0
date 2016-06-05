@@ -1,4 +1,4 @@
-create database carrental
+create database CarRent
 
 	create table users(
 		id int identity(1,1) not null,
@@ -20,6 +20,9 @@ create database carrental
 		officials char(1),
 		models char(1),
 		brands char(1),
+		expimp char(1),
+		reserves char(1),
+		webreserves  char(1),
 		date_add datetime,
 		date_alt datetime,
 		status char(1),   
@@ -198,10 +201,15 @@ create database carrental
 		sales_price decimal(18,2),
 		rental_price decimal(18,2),
 		availability Varchar(20),
-		description varchar(1000),
+		description varchar(1000),		
 		date_add datetime,
 		date_alt datetime,
 		status char(1),  
+		image1 varchar(100);
+		image2 varchar(100);
+		image3 varchar(100);
+		image4 varchar(100);
+		image5 varchar(100);
 		constraint PK_cars_id
 		primary key (id), 
 		constraint FK_cars_brands
@@ -252,7 +260,7 @@ create database carrental
 		foreign key (id_official) references officials(id),
 	);     
 	
-		create table rentals_itens(
+	create table rentals_itens(
 		rent_itens_id int identity(1,1) not null,
 		id_rent int not null ,				
 		id_car int,
@@ -274,7 +282,7 @@ create database carrental
 		
 	); 
 
-		create table sales(
+	create table sales(
 		id int identity(1,1) not null,
 		id_client int,
 		id_official int,
@@ -291,7 +299,7 @@ create database carrental
 		foreign key (id_official) references officials(id),
 	);     
 
-		create table sales_itens(
+	create table sales_itens(
 		sales_itens_id int identity(1,1) not null,
 		id_sale int not null ,				
 		id_car int,
@@ -310,3 +318,80 @@ create database carrental
 		foreign Key (id_model) references car_models(id),	
 		
 	); 
+
+	create table reservation(
+		id int identity(1,1) not null,
+		id_client int not null,			
+		start_date varchar(10) not null,
+		end_data varchar(10) not null,
+		star_hour varchar(10) not null,
+		end_hour varchar(10) not null,
+		id_car int not null,
+		status char(1) not null,
+		add_date datetime not null,
+		constraint PK_reservation_id
+		primary key (id), 
+		constraint FK_reservation_clients
+		foreign key (id_client) references clients(id),				
+		constraint FK_reservation_cars
+		foreign key (id_car) references cars(id),	
+	);
+		
+	CREATE TABLE  customer_cars (
+
+		id int identity(1,1) not null,
+
+		id_client int NOT NULL,
+
+
+		id_brand int NOT NULL,
+		id_model int NOT NULL,
+
+		color varchar(20) NOT NULL,
+
+		year char(4)  NOT NULL,
+
+		air_conditioning char(1)  NOT NULL,
+
+		power_steering char(1)  NOT NULL,
+
+		power_window char(1) NOT NULL,
+
+		automatic_exchange char(1)  NOT NULL,
+
+		airbags char(1) not null,
+
+		price decimal(18,2) NOT NULL,
+
+		description varchar(1000)  NOT NULL,
+
+		image1 varchar(50),
+		image2 varchar(50),
+		image3 varchar(50),
+		image4 varchar(50),
+		image5 varchar(50),	
+		constraint PK_customer_cars_id
+		primary key (id), 
+		constraint FK_customer_cars_brands
+		foreign key (id_brand) references brands (id),
+		constraint FK_customer_cars_models
+		foreign key (id_model) references car_models (id),
+		constraint FK_customer_cars_Providers
+		foreign key (id_client) references clients (id),
+ 
+	 ); 
+
+	create table cars_images(
+		id int identity(1,1) not null,
+		id_car int not null,	
+		image1 image,
+		image2 image,
+		image3 image,
+		image4 image,
+		image5 image,
+		constraint PK_cars_images_id
+		primary key (id), 
+		constraint FK_cars_images_cars
+		foreign key (id_car) references cars (id),
+		
+	);

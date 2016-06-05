@@ -107,6 +107,8 @@ type
     procedure DBLookupComboBox3MouseEnter(Sender: TObject);
     procedure DateTimePicker1Change(Sender: TObject);
     procedure DateTimePicker2Change(Sender: TObject);
+    procedure ToolButton1Click(Sender: TObject);
+    procedure btnprintClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -122,7 +124,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM;
+uses UnitDM, UnitRelRents;
 
 
 
@@ -279,7 +281,7 @@ end;
 procedure TFrmRents.BtnExcluirClick(Sender: TObject);
 begin
   inherited;
- BtnAdcionar.Enabled:= true;
+  BtnAdcionar.Enabled:= true;
   BtnExcluir.Enabled:= true;
   BtnConfirma.Enabled:= false;
   BtnCancelar.Enabled:= false;
@@ -302,6 +304,12 @@ end;
 
 
 
+
+procedure TFrmRents.btnprintClick(Sender: TObject);
+begin
+  inherited;
+  FrmRelRents.ShowModal;
+end;
 
 procedure TFrmRents.DateTimePicker1Change(Sender: TObject);
 begin
@@ -519,6 +527,12 @@ FDQueryClients.close();
 FDQueryOfficial.close();
 FDQueryVehicles.close();
 FDQueryVehiclesII.close();
+end;
+
+procedure TFrmRents.ToolButton1Click(Sender: TObject);
+begin
+  inherited;
+FrmRelRents.showmodal;
 end;
 
 end.
