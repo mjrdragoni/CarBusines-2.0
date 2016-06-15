@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Vcl.Mask, Vcl.DBCtrls, Vcl.StdCtrls, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, System.ImageList, Vcl.ImgList, Vcl.Buttons, Vcl.ExtCtrls,
-  Vcl.ComCtrls, Vcl.ToolWin;
+  Vcl.ComCtrls, Vcl.ToolWin, Vcl.Menus;
 
 type
   TFrmClients = class(TFrmPattern)
@@ -53,6 +53,12 @@ type
     procedure tipocliExit(Sender: TObject);
     procedure ToolButton2Click(Sender: TObject);
     procedure btnprintClick(Sender: TObject);
+    procedure btnsearchClick(Sender: TObject);
+    procedure DBEdit8Change(Sender: TObject);
+    procedure DBEdit11Change(Sender: TObject);
+    procedure DBEdit12Change(Sender: TObject);
+    procedure DBEdit10Change(Sender: TObject);
+    procedure DBEdit16Change(Sender: TObject);
 
   private
     { Private declarations }
@@ -67,7 +73,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM, UnitRelClients;
+uses UnitDM, UnitRelClients, UnitClientSearch;
 
 procedure TFrmClients.btnaddClick(Sender: TObject);
 begin
@@ -85,6 +91,42 @@ procedure TFrmClients.btnprintClick(Sender: TObject);
 begin
   inherited;
   FrmRelClients.ShowModal;
+end;
+
+procedure TFrmClients.btnsearchClick(Sender: TObject);
+begin
+  inherited;
+    frmclientsearch.ShowModal;
+end;
+
+procedure TFrmClients.DBEdit10Change(Sender: TObject);
+begin
+  inherited;
+ FDtable.FieldByName('phone').EditMask:= '!\(99\)0000-0000;1';
+end;
+
+procedure TFrmClients.DBEdit11Change(Sender: TObject);
+begin
+  inherited;
+  FDtable.FieldByName('cell').EditMask:= '!\(99\)9000-0000;1';
+end;
+
+procedure TFrmClients.DBEdit12Change(Sender: TObject);
+begin
+  inherited;
+ FDtable.FieldByName('cell2').EditMask:= '!\(99\)9000-0000;1';
+end;
+
+procedure TFrmClients.DBEdit16Change(Sender: TObject);
+begin
+  inherited;
+ FDtable.FieldByName('fax').EditMask:= '!\(99\)0000-0000;1';
+end;
+
+procedure TFrmClients.DBEdit8Change(Sender: TObject);
+begin
+  inherited;
+FDtable.FieldByName('zip_code').EditMask:= '00000\-999;1;_';
 end;
 
 procedure TFrmClients.FormActivate(Sender: TObject);

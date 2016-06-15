@@ -1,119 +1,126 @@
 inherited FrmMaintenance: TFrmMaintenance
   Caption = 'Manuten'#231#227'o'
   ClientHeight = 411
-  ClientWidth = 616
-  ExplicitWidth = 622
+  ClientWidth = 630
+  ExplicitWidth = 636
   ExplicitHeight = 440
   PixelsPerInch = 96
   TextHeight = 13
   inherited ToolBar1: TToolBar
-    Width = 616
-    ExplicitWidth = 616
+    Width = 630
+    ExplicitWidth = 630
     inherited ToolButton16: TToolButton
-      Width = 25
-      ExplicitWidth = 25
+      Width = 17
+      ExplicitWidth = 17
     end
     inherited btnsearch: TToolButton
-      Left = 25
-      ExplicitLeft = 25
+      Left = 17
+      ExplicitLeft = 17
+      ExplicitWidth = 56
     end
     inherited btnorder: TToolButton
-      Left = 65
-      ExplicitLeft = 65
+      Left = 73
+      ExplicitLeft = 73
     end
     inherited separator1: TToolButton
-      Left = 105
-      ExplicitLeft = 105
+      Left = 114
+      ExplicitLeft = 114
     end
     inherited btnfirst: TToolButton
-      Left = 113
-      ExplicitLeft = 113
+      Left = 122
+      ExplicitLeft = 122
     end
     inherited btnprevious: TToolButton
-      Left = 153
-      ExplicitLeft = 153
+      Left = 163
+      ExplicitLeft = 163
     end
     inherited btnnext: TToolButton
-      Left = 193
-      ExplicitLeft = 193
+      Left = 204
+      ExplicitLeft = 204
     end
     inherited btnlast: TToolButton
-      Left = 233
-      ExplicitLeft = 233
+      Left = 245
+      ExplicitLeft = 245
     end
     inherited separator2: TToolButton
-      Left = 273
-      ExplicitLeft = 273
+      Left = 286
+      ExplicitLeft = 286
     end
     inherited btnadd: TToolButton
-      Left = 281
-      ExplicitLeft = 281
+      Left = 294
+      ExplicitLeft = 294
     end
     inherited btnchange: TToolButton
-      Left = 321
-      ExplicitLeft = 321
+      Left = 335
+      ExplicitLeft = 335
     end
     inherited separator3: TToolButton
-      Left = 361
-      ExplicitLeft = 361
+      Left = 376
+      ExplicitLeft = 376
     end
     inherited btndel: TToolButton
-      Left = 369
-      ExplicitLeft = 369
+      Left = 384
+      ExplicitLeft = 384
     end
     inherited btnsave: TToolButton
-      Left = 409
-      ExplicitLeft = 409
+      Left = 425
+      ExplicitLeft = 425
     end
     inherited btncancel: TToolButton
-      Left = 449
-      ExplicitLeft = 449
+      Left = 466
+      ExplicitLeft = 466
     end
     inherited ToolButton1: TToolButton
-      Left = 489
-      ExplicitLeft = 489
+      Left = 507
+      ExplicitLeft = 507
     end
     inherited btnprint: TToolButton
-      Left = 497
+      Left = 515
       OnClick = btnprintClick
-      ExplicitLeft = 497
+      ExplicitLeft = 515
     end
     inherited Separator4: TToolButton
-      Left = 537
-      ExplicitLeft = 537
+      Left = 556
+      ExplicitLeft = 556
     end
     inherited btnclose: TToolButton
-      Left = 545
-      ExplicitLeft = 545
+      Left = 564
+      ExplicitLeft = 564
     end
   end
   inherited StatusBar1: TStatusBar
     Top = 392
-    Width = 616
+    Width = 630
     ExplicitTop = 392
-    ExplicitWidth = 616
+    ExplicitWidth = 630
   end
   inherited Panel1: TPanel
-    Width = 616
-    ExplicitWidth = 616
+    Width = 630
+    ExplicitWidth = 630
     inherited enablesCheck: TDBCheckBox
       DataField = 'status'
       DataSource = DSPattern
     end
   end
   inherited PanelRecord: TPanel
-    Width = 616
+    Width = 630
     Height = 295
-    ExplicitWidth = 616
+    ExplicitWidth = 630
     ExplicitHeight = 295
     object Pnlmanut: TPanel
       Left = 1
       Top = 1
-      Width = 614
+      Width = 628
       Height = 293
       Align = alClient
-      Color = -1
+      Color = clMenu
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
       ParentBackground = False
+      ParentFont = False
       TabOrder = 0
       object Label5: TLabel
         Left = 305
@@ -122,7 +129,7 @@ inherited FrmMaintenance: TFrmMaintenance
         Height = 13
         Caption = 'Data de In'#237'cio'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -135,7 +142,7 @@ inherited FrmMaintenance: TFrmMaintenance
         Height = 13
         Caption = 'Valor'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -148,7 +155,7 @@ inherited FrmMaintenance: TFrmMaintenance
         Height = 13
         Caption = 'Data de Termino'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -161,7 +168,7 @@ inherited FrmMaintenance: TFrmMaintenance
         Height = 13
         Caption = 'Descri'#231#227'o'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -174,7 +181,7 @@ inherited FrmMaintenance: TFrmMaintenance
         Height = 13
         Caption = 'Oficina '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -187,7 +194,7 @@ inherited FrmMaintenance: TFrmMaintenance
         Height = 13
         Caption = 'Nome do Carro'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -260,7 +267,7 @@ inherited FrmMaintenance: TFrmMaintenance
   end
   inherited ImageList1: TImageList
     Bitmap = {
-      494C01010D002400680020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D0024007C0020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2381,7 +2388,7 @@ inherited FrmMaintenance: TFrmMaintenance
   end
   inherited ImageList2: TImageList
     Bitmap = {
-      494C01010D001800500020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800640020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4502,7 +4509,7 @@ inherited FrmMaintenance: TFrmMaintenance
   end
   inherited ImageList3: TImageList
     Bitmap = {
-      494C01010D001800440020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800580020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -6655,6 +6662,7 @@ inherited FrmMaintenance: TFrmMaintenance
     object FDTableamount: TBCDField
       FieldName = 'amount'
       Origin = 'amount'
+      DisplayFormat = 'R$ ,#0.00'
       Precision = 18
       Size = 2
     end

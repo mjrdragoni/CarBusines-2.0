@@ -56,6 +56,11 @@ type
     N2: TMenuItem;
     Registrosbloqueadosparaouso1: TMenuItem;
     ImageList4: TImageList;
+    PopupMenu2: TPopupMenu;
+    Cdigo2: TMenuItem;
+    DatadeIncluso1: TMenuItem;
+    DatadeAlterao1: TMenuItem;
+    N4: TMenuItem;
     procedure btnfirstClick(Sender: TObject);
     procedure btnpreviousClick(Sender: TObject);
     procedure btnnextClick(Sender: TObject);
@@ -74,7 +79,9 @@ type
     procedure Cdigo1Click(Sender: TObject);
     procedure Registrosalteradosnoperodo1Click(Sender: TObject);
     procedure Registrosbloqueadosparaouso1Click(Sender: TObject);
-    procedure btnsearchClick(Sender: TObject);
+    procedure Cdigo2Click(Sender: TObject);
+    procedure DatadeIncluso1Click(Sender: TObject);
+    procedure DatadeAlterao1Click(Sender: TObject);
   private
     Frun: Trun;
     Procedure Setrun(const Value: Trun);
@@ -116,7 +123,7 @@ implementation
 
 {$R *.dfm}
 
-uses  UnitLogin, UnitMainMenu, UnitSearchDate, UnitSearchString;
+uses  UnitLogin, UnitMainMenu, UnitSearchDate;
 
 procedure TFrmPattern.btnaddClick(Sender: TObject);
 begin
@@ -294,15 +301,32 @@ begin
     labelStatus.Visible:= False;
 end;
 
-procedure TFrmPattern.btnsearchClick(Sender: TObject);
-begin
-pesqString.ShowModal;
-end;
+
 
 procedure TFrmPattern.Cdigo1Click(Sender: TObject);
 begin
   fieldValue.Clear;
   fieldValue.SetFocus;
+   btnOk.Enabled:= true;
+  enablesCheck.Enabled:= true;
+end;
+
+procedure TFrmPattern.Cdigo2Click(Sender: TObject);
+begin
+FDTable.IndexFieldNames:='id';
+statusBar1.Panels[2].Text:= 'Ordenado: Código-ID';
+end;
+
+procedure TFrmPattern.DatadeAlterao1Click(Sender: TObject);
+begin
+FDTable.IndexFieldNames:='date_alt';
+statusBar1.Panels[2].Text:= 'Ordenado: Data de Alteração';
+end;
+
+procedure TFrmPattern.DatadeIncluso1Click(Sender: TObject);
+begin
+FDTable.IndexFieldNames:='date_add';
+statusBar1.Panels[2].Text:= 'Ordenado: Data de Inclusão';
 end;
 
 procedure TFrmPattern.FormActivate(Sender: TObject);

@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, Vcl.DBCtrls, Vcl.Mask, FireDAC.Comp.Client,
   System.ImageList, Vcl.ImgList, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  Vcl.ComCtrls, Vcl.ToolWin, Vcl.Grids, Vcl.DBGrids;
+  Vcl.ComCtrls, Vcl.ToolWin, Vcl.Grids, Vcl.DBGrids, Vcl.Menus;
 
 type
   TFrmRents = class(TFrmPattern)
@@ -89,6 +89,8 @@ type
     FDTableRentalItensNomedoVeículo: TStringField;
     DateTimePicker2: TDateTimePicker;
     DateTimePicker1: TDateTimePicker;
+    Edit1: TEdit;
+    Label6: TLabel;
     procedure editdaysExit(Sender: TObject);
     procedure BtnAdcionarClick(Sender: TObject);
     procedure BtnExcluirClick(Sender: TObject);
@@ -109,6 +111,7 @@ type
     procedure DateTimePicker2Change(Sender: TObject);
     procedure ToolButton1Click(Sender: TObject);
     procedure btnprintClick(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
 
   private
     { Private declarations }
@@ -299,12 +302,6 @@ begin
     FDTableRentalItens.Delete;
 end;
 
-
-
-
-
-
-
 procedure TFrmRents.btnprintClick(Sender: TObject);
 begin
   inherited;
@@ -359,6 +356,12 @@ begin
     FDQueryVehicles.SQL.Add(strCurrentSQL);
     FDQueryVehicles.Open;
 
+end;
+
+procedure TFrmRents.Edit1Change(Sender: TObject);
+begin
+  inherited;
+DBEdit7.Text:= floattostr(FDTableamount_rent.AsFloat - strtofloat(Edit1.Text));
 end;
 
 procedure TFrmRents.editdaysExit(Sender: TObject);
@@ -512,6 +515,8 @@ FDQueryClients.Open;
 FDQueryOfficial.Open;
 FDQueryVehicles.Open;
 FDQueryVehiclesII.Open;
+datetimepicker1.date:= now;
+datetimepicker2.date:= now;
 
 end;
 

@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.ImageList,
   Vcl.ImgList, Vcl.StdCtrls, Vcl.Buttons, Vcl.DBCtrls, Vcl.ExtCtrls,
-  Vcl.ComCtrls, Vcl.ToolWin, Vcl.Grids, Vcl.DBGrids, Vcl.Mask;
+  Vcl.ComCtrls, Vcl.ToolWin, Vcl.Grids, Vcl.DBGrids, Vcl.Mask, Vcl.Menus;
 
 type
   TFrmSales = class(TFrmPattern)
@@ -97,6 +97,8 @@ type
     FDTableCarsdate_alt: TSQLTimeStampField;
     FDTableCarsstatus: TStringField;
     FDTableSalesItensNomedoVeículo: TStringField;
+    Label6: TLabel;
+    Edit1: TEdit;
     procedure DBLookupComboBox3MouseEnter(Sender: TObject);
     procedure FDTableSalesItensid_carValidate(Sender: TField);
     procedure BtnAdcionarClick(Sender: TObject);
@@ -111,6 +113,7 @@ type
     procedure FDTableSalesItensNewRecord(DataSet: TDataSet);
     procedure ToolButton2Click(Sender: TObject);
     procedure btnprintClick(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -218,7 +221,7 @@ end;
 procedure TFrmSales.BtnExcluirClick(Sender: TObject);
 begin
   inherited;
- BtnAdcionar.Enabled:= true;
+  BtnAdcionar.Enabled:= true;
   BtnExcluir.Enabled:= true;
   BtnConfirma.Enabled:= false;
   BtnCancelar.Enabled:= false;
@@ -283,6 +286,12 @@ begin
     FDQueryVehicles.SQL.Add(strCurrentSQL);
     FDQueryVehicles.Open;
     end;
+
+procedure TFrmSales.Edit1Change(Sender: TObject);
+begin
+  inherited;
+DBEdit7.Text:= floattostr(FDTableamount_sale.AsFloat - strtofloat(Edit1.Text));
+end;
 
 procedure TFrmSales.FDTableSalesItensAfterDelete(DataSet: TDataSet);
 var

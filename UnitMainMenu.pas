@@ -11,8 +11,9 @@ uses
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ComCtrls,
   Vcl.AppEvnts, Vcl.ExtCtrls, Vcl.ToolWin, Vcl.ActnCtrls, Vcl.ActnMenus,
   System.ImageList, Vcl.ImgList, Vcl.Imaging.jpeg, VCLTee.TeeFilters,
-  Vcl.StdStyleActnCtrls, Vcl.XPStyleActnCtrls, Vcl.StdCtrls,
+  Vcl.StdStyleActnCtrls, Vcl.XPStyleActnCtrls, Vcl.StdCtrls, Vcl.Themes, Vcl.Styles,
   Vcl.Imaging.pngimage;
+
 
 type
   TFrmMainMenu = class(TForm)
@@ -38,7 +39,7 @@ type
     Access_sales: TAction;
     Access_ExpImp: TAction;
     Access_WebReserves: TAction;
-    Access_Reserves: TAction;
+    Action1: TAction;
     Image1: TImage;
     procedure FormActivate(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -75,8 +76,9 @@ type
     procedure RelRentsExecute(Sender: TObject);
     procedure Access_WebReservesExecute(Sender: TObject);
     procedure Access_WebReservesUpdate(Sender: TObject);
-    procedure Access_ReservesUpdate(Sender: TObject);
     procedure ApplicationEvents1Exception(Sender: TObject; E: Exception);
+    procedure Action1Execute(Sender: TObject);
+    procedure Access_ReservesExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -93,7 +95,7 @@ implementation
 uses UnitDM, UnitLogin, UnitUsers, UnitClients, UnitDepartments, UnitOfficials,
   UnitPositions, UnitProviders, UnitWorkshops, UnitMaintenance, UnitBrands,
   UnitCars, UnitModels, UnitRents, UnitSales, UnitExpotaImportaWeb,
-  UnitRelRents, UnitRelSale, UnitWebReserves;
+  UnitRelRents, UnitRelSale, UnitWebReserves, UnitAppearance, UnitReserves;
 
 procedure TFrmMainMenu.AccessUsersExecute(Sender: TObject);
 begin
@@ -182,6 +184,11 @@ strCurrentSQL:='SELECT * FROM users WHERE login = ' + #39 + users + #39;
 
         FDQueryUsers.Close;
 
+end;
+
+procedure TFrmMainMenu.Action1Execute(Sender: TObject);
+begin
+FrmAppearance.ShowModal;
 end;
 
 procedure TFrmMainMenu.ApplicationEvents1Exception(Sender: TObject;
@@ -393,10 +400,20 @@ end;
 
 procedure TFrmMainMenu.FormActivate(Sender: TObject);
 begin
-StatusBar1.Panels[1].Text:=
+    StatusBar1.Panels[1].Text:=
     formatDateTime(' dddd ", "' +
      ' dd " de " mmmm " de " yyyy',Now);
      StatusBar1.Panels[2].Text:= 'Usuário: ' + users;
+
+     strCurrentSQL:='SELECT * FROM users WHERE id = ' + #39 + inttostr(iduser) + #39;
+
+      FDQueryUsers.Close;
+      FDQueryUsers.SQL.Clear;
+      FDQueryUsers.SQL.Add(strCurrentSQL);
+      FDQueryUsers.Open();
+      TStyleManager.TrySetStyle(FDQueryUsers.FieldByName('appearance').AsString);
+      FDQueryUsers.Close;
+
 
 end;
 
@@ -550,23 +567,12 @@ strCurrentSQL:='SELECT * FROM users WHERE login = ' + #39 + users + #39;
 end;
 
 
-procedure TFrmMainMenu.Access_ReservesUpdate(Sender: TObject);
-var strCurrentSQL: string;
+procedure TFrmMainMenu.Access_ReservesExecute(Sender: TObject);
 begin
-
-strCurrentSQL:='SELECT * FROM users WHERE login = ' + #39 + users + #39;
-
-      FDQueryUsers.Close;
-      FDQueryUsers.SQL.Clear;
-      FDQueryUsers.SQL.Add(strCurrentSQL);
-      FDQueryUsers.Open();
-
-      if FDQueryUsers.FieldByName('rentals').AsString = 'Y' then
-        Access_Reserves.Enabled:= True
-      else
-        Access_Reserves.Enabled:= False;
-        FDQueryUsers.Close;
+FrmReserves.ShowModal;
 end;
+
+
 
 procedure TFrmMainMenu.Timer1Timer(Sender: TObject);
 begin

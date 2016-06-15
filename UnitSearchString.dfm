@@ -4,7 +4,7 @@ object pesqString: TpesqString
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Pesquisa Alfanum'#233'rica de Registros'
-  ClientHeight = 162
+  ClientHeight = 318
   ClientWidth = 460
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -31,8 +31,8 @@ object pesqString: TpesqString
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 144
-    Top = 96
+    Left = 151
+    Top = 52
     Width = 24
     Height = 13
     Caption = 'Valor'
@@ -41,16 +41,16 @@ object pesqString: TpesqString
     Left = 0
     Top = 0
     Width = 124
-    Height = 162
-    Align = alLeft
+    Height = 117
+    Align = alCustom
     BevelOuter = bvNone
     TabOrder = 0
     object Image1: TImage
       Left = 0
       Top = 0
       Width = 124
-      Height = 162
-      Align = alClient
+      Height = 117
+      Align = alCustom
       Center = True
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000800000
@@ -406,15 +406,11 @@ object pesqString: TpesqString
         04E89BE25E1D555DE09209906AF9BA38F512F05C0608D077455D0731DDAAA6EE
         65EB78DB6BEB040D10A06F8BBAAA997B7D43B521A7D781E7F2FF01424CF5CAFA
         03B1910000000049454E44AE426082}
-      ExplicitLeft = 8
-      ExplicitTop = 24
-      ExplicitWidth = 105
-      ExplicitHeight = 105
     end
   end
   object BitBtn1: TBitBtn
-    Left = 294
-    Top = 129
+    Left = 288
+    Top = 92
     Width = 75
     Height = 25
     Caption = 'Sair'
@@ -422,33 +418,30 @@ object pesqString: TpesqString
     OnClick = BitBtn1Click
   end
   object BitBtn2: TBitBtn
-    Left = 377
-    Top = 129
+    Left = 369
+    Top = 92
     Width = 75
     Height = 25
     Caption = 'Pesquisar'
     TabOrder = 2
   end
-  object RadioGroup1: TRadioGroup
-    Left = 137
-    Top = 27
-    Width = 315
-    Height = 54
-    Hint = 'Selecione o modo de pesquisa'
-    Caption = ' Modo de Pesquisa'
-    Columns = 3
-    ItemIndex = 0
-    Items.Strings = (
-      'Cont'#233'm'
-      'Inicia com'
-      'Termina com')
-    TabOrder = 3
-  end
-  object Edit1: TEdit
+  object Valorcampo: TEdit
     Left = 181
-    Top = 96
+    Top = 49
     Width = 271
     Height = 21
+    TabOrder = 3
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 160
+    Width = 465
+    Height = 161
     TabOrder = 4
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
   end
 end

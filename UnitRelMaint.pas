@@ -15,6 +15,8 @@ type
   TFrmRelMaint = class(TFrmPatternRel)
     Edit1: TEdit;
     Label1: TLabel;
+    FDQuery2: TFDQuery;
+    frxDBDataset2: TfrxDBDataset;
     procedure btnprintClick(Sender: TObject);
     procedure btncancelrelClick(Sender: TObject);
   private
@@ -29,6 +31,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses UnitDM;
 
 procedure TFrmRelMaint.btncancelrelClick(Sender: TObject);
 begin

@@ -1,9 +1,18 @@
 inherited FrmUsers: TFrmUsers
   Caption = 'Cadastro/Altera'#231#227'o de Usu'#225'rios'
   ClientHeight = 503
+  ExplicitWidth = 662
   ExplicitHeight = 532
   PixelsPerInch = 96
   TextHeight = 13
+  inherited ToolBar1: TToolBar
+    inherited btnsearch: TToolButton
+      ExplicitWidth = 56
+    end
+    inherited btnprint: TToolButton
+      OnClick = btnprintClick
+    end
+  end
   inherited StatusBar1: TStatusBar
     Top = 484
     ExplicitTop = 484
@@ -18,7 +27,6 @@ inherited FrmUsers: TFrmUsers
     Height = 387
     Font.Height = -12
     ParentFont = False
-    ExplicitTop = 97
     ExplicitHeight = 387
     object Label2: TLabel
       Left = 95
@@ -73,6 +81,7 @@ inherited FrmUsers: TFrmUsers
       Font.Height = -12
       Font.Name = 'Tahoma'
       Font.Style = []
+      MaxLength = 20
       ParentFont = False
       PasswordChar = '*'
       TabOrder = 1
@@ -201,7 +210,7 @@ inherited FrmUsers: TFrmUsers
           ValueUnchecked = 'N'
         end
         object DBCheckBox12: TDBCheckBox
-          Left = 415
+          Left = 296
           Top = 164
           Width = 112
           Height = 17
@@ -248,18 +257,6 @@ inherited FrmUsers: TFrmUsers
           ValueChecked = 'Y'
           ValueUnchecked = 'N'
         end
-        object DBCheckBox19: TDBCheckBox
-          Left = 296
-          Top = 164
-          Width = 73
-          Height = 17
-          Caption = 'Reservas'
-          DataField = 'reserves'
-          DataSource = DSPattern
-          TabOrder = 11
-          ValueChecked = 'Y'
-          ValueUnchecked = 'N'
-        end
         object DBCheckBox16: TDBCheckBox
           Left = 415
           Top = 87
@@ -268,7 +265,7 @@ inherited FrmUsers: TFrmUsers
           Caption = 'Marcas'
           DataField = 'brands'
           DataSource = DSPattern
-          TabOrder = 12
+          TabOrder = 11
           ValueChecked = 'Y'
           ValueUnchecked = 'N'
         end
@@ -280,7 +277,7 @@ inherited FrmUsers: TFrmUsers
           Caption = 'Modelos'
           DataField = 'models'
           DataSource = DSPattern
-          TabOrder = 13
+          TabOrder = 12
           ValueChecked = 'Y'
           ValueUnchecked = 'N'
         end
@@ -292,7 +289,7 @@ inherited FrmUsers: TFrmUsers
           Caption = 'Exportar/Importar'
           DataField = 'expimp'
           DataSource = DSPattern
-          TabOrder = 14
+          TabOrder = 13
           ValueChecked = 'Y'
           ValueUnchecked = 'N'
         end
@@ -304,7 +301,7 @@ inherited FrmUsers: TFrmUsers
           Caption = 'Usu'#225'rios'
           DataField = 'users'
           DataSource = DSPattern
-          TabOrder = 15
+          TabOrder = 14
           ValueChecked = 'Y'
           ValueUnchecked = 'N'
         end
@@ -351,7 +348,7 @@ inherited FrmUsers: TFrmUsers
     Left = 392
     Top = 64
     Bitmap = {
-      494C01010D002400780020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D002400900020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2474,7 +2471,7 @@ inherited FrmUsers: TFrmUsers
     Left = 488
     Top = 80
     Bitmap = {
-      494C01010D001800600020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800780020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4597,7 +4594,7 @@ inherited FrmUsers: TFrmUsers
     Left = 584
     Top = 64
     Bitmap = {
-      494C01010D001800540020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D0018006C0020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -6867,6 +6864,11 @@ inherited FrmUsers: TFrmUsers
       FixedChar = True
       Size = 1
     end
+    object FDTableappearance: TStringField
+      FieldName = 'appearance'
+      Origin = 'appearance'
+      Size = 50
+    end
   end
   inherited DSPattern: TDataSource
     Left = 464
@@ -6887,8 +6889,10 @@ inherited FrmUsers: TFrmUsers
     end
   end
   inherited ImageList4: TImageList
+    Left = 56
+    Top = 121
     Bitmap = {
-      494C010104000800340010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101040008004C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

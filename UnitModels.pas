@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.Mask, Data.DB, FireDAC.Comp.DataSet,
   System.ImageList, Vcl.ImgList, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  Vcl.ComCtrls, Vcl.ToolWin;
+  Vcl.ComCtrls, Vcl.ToolWin, Vcl.Menus;
 
 type
   TFrmModels = class(TFrmPattern)
@@ -21,6 +21,7 @@ type
     DSBrands: TDataSource;
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnprintClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,7 +35,13 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM;
+uses UnitDM, UnitRelModels;
+
+procedure TFrmModels.btnprintClick(Sender: TObject);
+begin
+  inherited;
+FrmRelModels.ShowModal;
+end;
 
 procedure TFrmModels.FormActivate(Sender: TObject);
 begin

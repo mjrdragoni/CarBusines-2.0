@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.DBCtrls, Vcl.Mask,
   FireDAC.Comp.Client, System.ImageList, Vcl.ImgList, Vcl.Buttons, Vcl.ExtCtrls,
-  Vcl.ComCtrls, Vcl.ToolWin;
+  Vcl.ComCtrls, Vcl.ToolWin, Vcl.Menus;
 
 type
   TFrmWorkShops = class(TFrmPattern)
@@ -65,6 +65,7 @@ type
     FDTabledate_alt: TSQLTimeStampField;
     FDTablestatus: TStringField;
     procedure FormActivate(Sender: TObject);
+    procedure btnprintClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -78,7 +79,13 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM;
+uses UnitDM, UnitRelWorkShop;
+
+procedure TFrmWorkShops.btnprintClick(Sender: TObject);
+begin
+  inherited;
+FrmRelWorkShop.ShowModal;
+end;
 
 procedure TFrmWorkShops.FormActivate(Sender: TObject);
 begin

@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, Vcl.DBCtrls, Vcl.StdCtrls, Vcl.Mask,
   FireDAC.Comp.Client, System.ImageList, Vcl.ImgList, Vcl.Buttons, Vcl.ExtCtrls,
-  Vcl.ComCtrls, Vcl.ToolWin;
+  Vcl.ComCtrls, Vcl.ToolWin, Vcl.Menus;
 
 type
   TFrmOfficials = class(TFrmPattern)
@@ -68,6 +68,7 @@ type
     FDTablestatus: TStringField;
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnprintClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -81,7 +82,13 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM;
+uses UnitDM, UnitRelOfficials;
+
+procedure TFrmOfficials.btnprintClick(Sender: TObject);
+begin
+  inherited;
+FrmRelOfficials.ShowModal;
+end;
 
 procedure TFrmOfficials.FormActivate(Sender: TObject);
 begin

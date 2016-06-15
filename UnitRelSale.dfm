@@ -31,7 +31,7 @@ inherited FrmRelSale: TFrmRelSale
   end
   inherited ImageList1: TImageList
     Bitmap = {
-      494C01010D0024008C0020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D002400900020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       00000000000000000000FEF4DF00F5B32100F4A90300F4A90300F4A90300F4A9
@@ -2152,7 +2152,7 @@ inherited FrmRelSale: TFrmRelSale
   end
   inherited ImageList3: TImageList
     Bitmap = {
-      494C01010D001800680020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D0018006C0020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       00000000000000000000F3F3F300A9A9A9009E9E9E009E9E9E009E9E9E009E9E
@@ -4273,7 +4273,7 @@ inherited FrmRelSale: TFrmRelSale
   end
   inherited ImageList2: TImageList
     Bitmap = {
-      494C01010D001800740020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800780020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       00000000000000000000DFF2FF001FA4FF000098FF000098FF000098FF000098
@@ -6449,7 +6449,7 @@ inherited FrmRelSale: TFrmRelSale
         RowCount = 0
         object frxDBDataset1id: TfrxMemoView
           Left = 98.267780000000000000
-          Top = 9.559060000000000000
+          Top = 9.559059999999988000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
           DataField = 'id'
@@ -6460,7 +6460,7 @@ inherited FrmRelSale: TFrmRelSale
         end
         object Memo5: TfrxMemoView
           Left = 21.897650000000000000
-          Top = 7.559060000000000000
+          Top = 7.559059999999988000
           Width = 75.590600000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -6474,7 +6474,7 @@ inherited FrmRelSale: TFrmRelSale
         end
         object Memo6: TfrxMemoView
           Left = 37.795300000000000000
-          Top = 62.692950000000000000
+          Top = 62.692950000000020000
           Width = 56.692950000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -6488,7 +6488,7 @@ inherited FrmRelSale: TFrmRelSale
         end
         object Memo7: TfrxMemoView
           Left = 540.472790000000000000
-          Top = 7.559060000000000000
+          Top = 7.559059999999988000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -6502,7 +6502,7 @@ inherited FrmRelSale: TFrmRelSale
         end
         object Memo8: TfrxMemoView
           Left = 3.779530000000000000
-          Top = 34.015770000000000000
+          Top = 34.015769999999890000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -6572,7 +6572,7 @@ inherited FrmRelSale: TFrmRelSale
         end
         object frxDBDataset1name: TfrxMemoView
           Left = 98.267780000000000000
-          Top = 36.015770000000000000
+          Top = 36.015769999999890000
           Width = 158.740260000000000000
           Height = 18.897650000000000000
           DataField = 'name'
@@ -6583,7 +6583,7 @@ inherited FrmRelSale: TFrmRelSale
         end
         object frxDBDataset1name_conpany_name: TfrxMemoView
           Left = 98.267780000000000000
-          Top = 65.252010000000000000
+          Top = 65.252010000000010000
           Width = 222.992270000000000000
           Height = 18.897650000000000000
           DataField = 'name_conpany_name'
@@ -6594,10 +6594,9 @@ inherited FrmRelSale: TFrmRelSale
         end
         object frxDBDataset1date_add: TfrxMemoView
           Left = 582.047620000000000000
-          Top = 8.559060000000000000
+          Top = 8.559059999999988000
           Width = 124.724490000000000000
           Height = 18.897650000000000000
-          DataField = 'date_add'
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
           Memo.UTF8W = (
@@ -6706,9 +6705,9 @@ inherited FrmRelSale: TFrmRelSale
         Top = 476.220780000000000000
         Width = 718.110700000000000000
         object Memo15: TfrxMemoView
-          Left = 462.764070000000000000
-          Top = 85.669295000000000000
-          Width = 109.606370000000000000
+          Left = 447.645950000000000000
+          Top = 85.669295000000030000
+          Width = 105.826840000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clRed
@@ -6721,8 +6720,8 @@ inherited FrmRelSale: TFrmRelSale
           ParentFont = False
         end
         object Memo16: TfrxMemoView
-          Left = 422.842610000000000000
-          Top = 58.669295000000000000
+          Left = 445.519790000000000000
+          Top = 7.535404999999969000
           Width = 151.181200000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -6737,7 +6736,7 @@ inherited FrmRelSale: TFrmRelSale
         end
         object SysMemo1: TfrxSysMemoView
           Left = 575.488560000000000000
-          Top = 86.354360000000000000
+          Top = 86.354360000000040000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           DisplayFormat.FormatStr = '%2.2n'
@@ -6746,18 +6745,39 @@ inherited FrmRelSale: TFrmRelSale
             'R$[SUM(<frxDBDataset2."amounts_item">,DetailData1)]')
         end
         object SysMemo2: TfrxSysMemoView
-          Left = 575.488560000000000000
-          Top = 60.236240000000000000
+          Left = 613.283860000000000000
+          Top = 9.102350000000001000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           Memo.UTF8W = (
-            '[SUM(<frxDBDataset2."id">,DetailData1)]')
+            '[COUNT(DetailData1)]')
         end
         object Shape1: TfrxShapeView
-          Left = 404.409710000000000000
-          Top = 49.133890000000000000
+          Left = 408.189240000000000000
+          Top = 3.779530000000022000
           Width = 302.362400000000000000
-          Height = 71.811070000000000000
+          Height = 105.826840000000000000
+        end
+        object Memo10: TfrxMemoView
+          Left = 445.984540000000000000
+          Top = 49.133889999999950000
+          Width = 136.063080000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -15
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haCenter
+          Memo.UTF8W = (
+            'Valor do Desconto')
+          ParentFont = False
+        end
+        object SysMemo3: TfrxSysMemoView
+          Left = 604.724800000000000000
+          Top = 49.133889999999950000
+          Width = 94.488249999999990000
+          Height = 18.897650000000000000
         end
       end
       object DetailData1: TfrxDetailData
@@ -10531,7 +10551,7 @@ inherited FrmRelSale: TFrmRelSale
         '                         brands ON sales_itens.id_brand = brands' +
         '.id AND cars.id_brand = brands.id'
       'WHERE sales_itens.id_sale = :ID')
-    Left = 248
+    Left = 224
     Top = 8
     ParamData = <
       item
@@ -10539,7 +10559,7 @@ inherited FrmRelSale: TFrmRelSale
         DataType = ftAutoInc
         ParamType = ptInput
         Size = 4
-        Value = 4
+        Value = 16
       end>
   end
   object frxDBDataset2: TfrxDBDataset

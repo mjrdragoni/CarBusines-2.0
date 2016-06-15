@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Vcl.DBCtrls, Vcl.Mask, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
   System.ImageList, Vcl.ImgList, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  Vcl.ComCtrls, Vcl.ToolWin;
+  Vcl.ComCtrls, Vcl.ToolWin, Vcl.Menus;
 
 type
   TFrmPositions = class(TFrmPattern)
@@ -28,6 +28,7 @@ type
     FDTablestatus: TStringField;
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnprintClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,7 +42,13 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM;
+uses UnitDM, UnitRelPositions;
+
+procedure TFrmPositions.btnprintClick(Sender: TObject);
+begin
+  inherited;
+FrmRelPosition.showmodal;
+end;
 
 procedure TFrmPositions.FormActivate(Sender: TObject);
 begin

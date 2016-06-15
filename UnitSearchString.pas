@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
-  Vcl.Imaging.pngimage;
+  Vcl.Imaging.pngimage, Data.DB, Vcl.Grids, Vcl.DBGrids;
 
 type
   TpesqString = class(TForm)
@@ -14,11 +14,12 @@ type
     Label1: TLabel;
     BitBtn1: TBitBtn;
     BitBtn2: TBitBtn;
-    RadioGroup1: TRadioGroup;
     Label2: TLabel;
-    Edit1: TEdit;
+    Valorcampo: TEdit;
+    DBGrid1: TDBGrid;
     procedure FormActivate(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -39,11 +40,12 @@ begin
   close;
 end;
 
+
 procedure TpesqString.FormActivate(Sender: TObject);
 begin
   pesqString.Caption:= assignment;
-  Edit1.Clear;
-  Edit1.SetFocus;
+  valorcampo.Clear;
+  valorcampo.SetFocus;
   Label1.Caption:= windowName;
 end;
 

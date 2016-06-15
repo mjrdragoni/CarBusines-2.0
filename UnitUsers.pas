@@ -39,7 +39,6 @@ type
     DBCheckBox16: TDBCheckBox;
     DBCheckBox17: TDBCheckBox;
     DBCheckBox18: TDBCheckBox;
-    DBCheckBox19: TDBCheckBox;
     FDTableid: TFDAutoIncField;
     FDTablelogin: TStringField;
     FDTablepass: TStringField;
@@ -65,7 +64,9 @@ type
     FDTablestatus: TStringField;
     FDTablereserves: TStringField;
     FDTablewebreserves: TStringField;
+    FDTableappearance: TStringField;
     procedure btnaddClick(Sender: TObject);
+    procedure btnprintClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -79,7 +80,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitMainMenu, UnitDM;
+uses UnitMainMenu, UnitDM, UnitRelUsers;
 
 procedure TFrmUsers.btnaddClick(Sender: TObject);
 begin
@@ -103,11 +104,18 @@ FDTable.FieldByName('models').AsString:= 'N';
 FDTable.FieldByName('expimp').AsString:= 'N';
 FDTable.FieldByName('webreserves').AsString:= 'N';
 FDTable.FieldByName('reserves').AsString:= 'N';
+FDTable.FieldByName('appearance').AsString:= 'Carbon';
 
 
 end;
 
 
 
+
+procedure TFrmUsers.btnprintClick(Sender: TObject);
+begin
+  inherited;
+FrmRelUsers.Showmodal;
+end;
 
 end.

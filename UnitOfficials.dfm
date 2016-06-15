@@ -18,72 +18,73 @@ inherited FrmOfficials: TFrmOfficials
       ExplicitLeft = 72
     end
     inherited btnorder: TToolButton
-      Left = 112
-      ExplicitLeft = 112
+      Left = 128
+      ExplicitLeft = 128
     end
     inherited separator1: TToolButton
-      Left = 152
-      ExplicitLeft = 152
+      Left = 169
+      ExplicitLeft = 169
     end
     inherited btnfirst: TToolButton
-      Left = 160
-      ExplicitLeft = 160
+      Left = 177
+      ExplicitLeft = 177
     end
     inherited btnprevious: TToolButton
-      Left = 200
-      ExplicitLeft = 200
+      Left = 218
+      ExplicitLeft = 218
     end
     inherited btnnext: TToolButton
-      Left = 240
-      ExplicitLeft = 240
+      Left = 259
+      ExplicitLeft = 259
     end
     inherited btnlast: TToolButton
-      Left = 280
-      ExplicitLeft = 280
+      Left = 300
+      ExplicitLeft = 300
     end
     inherited separator2: TToolButton
-      Left = 320
-      ExplicitLeft = 320
+      Left = 341
+      ExplicitLeft = 341
     end
     inherited btnadd: TToolButton
-      Left = 328
-      ExplicitLeft = 328
+      Left = 349
+      ExplicitLeft = 349
     end
     inherited btnchange: TToolButton
-      Left = 368
-      ExplicitLeft = 368
+      Left = 390
+      ExplicitLeft = 390
     end
     inherited separator3: TToolButton
-      Left = 408
-      ExplicitLeft = 408
+      Left = 431
+      ExplicitLeft = 431
     end
     inherited btndel: TToolButton
-      Left = 416
-      ExplicitLeft = 416
+      Left = 439
+      ExplicitLeft = 439
     end
     inherited btnsave: TToolButton
-      Left = 456
-      ExplicitLeft = 456
+      Left = 480
+      ExplicitLeft = 480
     end
     inherited btncancel: TToolButton
-      Left = 496
-      ExplicitLeft = 496
+      Left = 521
+      ExplicitLeft = 521
     end
     inherited ToolButton1: TToolButton
-      Left = 536
-      ExplicitLeft = 536
+      Left = 562
+      ExplicitLeft = 562
     end
     inherited btnprint: TToolButton
-      Left = 544
-      ExplicitLeft = 544
+      Left = 570
+      OnClick = btnprintClick
+      ExplicitLeft = 570
     end
     inherited Separator4: TToolButton
-      Left = 584
-      ExplicitLeft = 584
+      Left = 611
+      ExplicitLeft = 611
     end
     inherited btnclose: TToolButton
-      Left = 592
-      ExplicitLeft = 592
+      Left = 619
+      ExplicitLeft = 619
     end
   end
   inherited StatusBar1: TStatusBar
@@ -111,7 +112,7 @@ inherited FrmOfficials: TFrmOfficials
       Width = 698
       Height = 306
       Align = alClient
-      Color = -1
+      Color = clMenu
       ParentBackground = False
       TabOrder = 0
       object Label3: TLabel
@@ -121,7 +122,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'CPF'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -134,7 +135,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'RG'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -147,7 +148,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'Nome'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -160,7 +161,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'Cidade'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -173,7 +174,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'Bairro'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -186,7 +187,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'Estado'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -199,7 +200,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'Complemento'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -212,7 +213,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'CEP'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -225,7 +226,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'E-Mail'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -238,7 +239,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'Telefone'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -251,7 +252,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'Celular'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -264,7 +265,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'Endere'#231'o'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -277,7 +278,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'Telefone para Recados'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -290,7 +291,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'Celular 2'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -303,7 +304,7 @@ inherited FrmOfficials: TFrmOfficials
         Height = 13
         Caption = 'Cargo'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -486,7 +487,7 @@ inherited FrmOfficials: TFrmOfficials
   end
   inherited ImageList1: TImageList
     Bitmap = {
-      494C01010D002400600020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D0024006C0020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2607,7 +2608,7 @@ inherited FrmOfficials: TFrmOfficials
   end
   inherited ImageList2: TImageList
     Bitmap = {
-      494C01010D001800480020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800540020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4728,7 +4729,7 @@ inherited FrmOfficials: TFrmOfficials
   end
   inherited ImageList3: TImageList
     Bitmap = {
-      494C01010D0018003C0020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800480020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -6869,6 +6870,7 @@ inherited FrmOfficials: TFrmOfficials
       FieldName = 'cpf'
       Origin = 'cpf'
       Required = True
+      EditMask = '000.000.000-00;1;_'
     end
     object FDTablename: TStringField
       FieldName = 'name'
@@ -6915,28 +6917,34 @@ inherited FrmOfficials: TFrmOfficials
       FieldName = 'zip_code'
       Origin = 'zip_code'
       Required = True
+      EditMask = '00000\-999;1;_'
     end
     object FDTablephone: TStringField
       FieldName = 'phone'
       Origin = 'phone'
       Required = True
+      EditMask = '!\(99\)0000-0000;1;_'
     end
     object FDTablephone_messages: TStringField
       FieldName = 'phone_messages'
       Origin = 'phone_messages'
       Required = True
+      EditMask = '!\(99\)0000-0000;1;_'
     end
     object FDTablecell: TStringField
       FieldName = 'cell'
       Origin = 'cell'
+      EditMask = '!\(99\)9000-0000;1;_'
     end
     object FDTablecell2: TStringField
       FieldName = 'cell2'
       Origin = 'cell2'
+      EditMask = '!\(99\)9000-0000;1;_'
     end
     object FDTablefax: TStringField
       FieldName = 'fax'
       Origin = 'fax'
+      EditMask = '!\(99\)0000-0000;1;_'
     end
     object FDTableemail: TStringField
       FieldName = 'email'

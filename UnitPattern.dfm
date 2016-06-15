@@ -2,10 +2,10 @@ object FrmPattern: TFrmPattern
   Left = 0
   Top = 0
   BorderIcons = []
-  BorderStyle = bsDialog
+  BorderStyle = bsSingle
   Caption = 'BasicForm'
   ClientHeight = 460
-  ClientWidth = 630
+  ClientWidth = 656
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,12 +21,12 @@ object FrmPattern: TFrmPattern
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
-    Width = 630
+    Width = 656
     Height = 48
     AutoSize = True
     BorderWidth = 1
     ButtonHeight = 40
-    ButtonWidth = 40
+    ButtonWidth = 41
     Caption = 'ToolBar1'
     DisabledImages = ImageList3
     EdgeBorders = [ebTop, ebBottom]
@@ -53,17 +53,17 @@ object FrmPattern: TFrmPattern
       ImageIndex = 0
       Indeterminate = True
       Style = tbsDropDown
-      OnClick = btnsearchClick
     end
     object btnorder: TToolButton
-      Left = 80
+      Left = 81
       Top = 0
       Hint = 'Ordenar'
       Caption = 'btnorder'
+      DropdownMenu = PopupMenu2
       ImageIndex = 1
     end
     object separator1: TToolButton
-      Left = 120
+      Left = 122
       Top = 0
       Width = 8
       Caption = 'separator1'
@@ -71,7 +71,7 @@ object FrmPattern: TFrmPattern
       Style = tbsSeparator
     end
     object btnfirst: TToolButton
-      Left = 128
+      Left = 130
       Top = 0
       Hint = 'Primeiro'
       Caption = 'btnfirst'
@@ -79,7 +79,7 @@ object FrmPattern: TFrmPattern
       OnClick = btnfirstClick
     end
     object btnprevious: TToolButton
-      Left = 168
+      Left = 171
       Top = 0
       Hint = 'Anterior'
       Caption = 'btnprevious'
@@ -87,7 +87,7 @@ object FrmPattern: TFrmPattern
       OnClick = btnpreviousClick
     end
     object btnnext: TToolButton
-      Left = 208
+      Left = 212
       Top = 0
       Hint = 'Proximo'
       Caption = 'btnnext'
@@ -95,7 +95,7 @@ object FrmPattern: TFrmPattern
       OnClick = btnnextClick
     end
     object btnlast: TToolButton
-      Left = 248
+      Left = 253
       Top = 0
       Hint = 'Ultimo'
       Caption = 'btnlast'
@@ -103,7 +103,7 @@ object FrmPattern: TFrmPattern
       OnClick = btnlastClick
     end
     object separator2: TToolButton
-      Left = 288
+      Left = 294
       Top = 0
       Width = 8
       Caption = 'separator2'
@@ -111,7 +111,7 @@ object FrmPattern: TFrmPattern
       Style = tbsSeparator
     end
     object btnadd: TToolButton
-      Left = 296
+      Left = 302
       Top = 0
       Hint = 'Adicionar'
       Caption = 'btnadd'
@@ -119,7 +119,7 @@ object FrmPattern: TFrmPattern
       OnClick = btnaddClick
     end
     object btnchange: TToolButton
-      Left = 336
+      Left = 343
       Top = 0
       Hint = 'Alterar'
       Caption = 'btnchange'
@@ -127,7 +127,7 @@ object FrmPattern: TFrmPattern
       OnClick = btnchangeClick
     end
     object separator3: TToolButton
-      Left = 376
+      Left = 384
       Top = 0
       Width = 8
       Caption = 'separator3'
@@ -135,7 +135,7 @@ object FrmPattern: TFrmPattern
       Style = tbsSeparator
     end
     object btndel: TToolButton
-      Left = 384
+      Left = 392
       Top = 0
       Hint = 'Excluir'
       Caption = 'btndel'
@@ -143,7 +143,7 @@ object FrmPattern: TFrmPattern
       OnClick = btndelClick
     end
     object btnsave: TToolButton
-      Left = 424
+      Left = 433
       Top = 0
       Hint = 'Salvar'
       Caption = 'btnsave'
@@ -151,7 +151,7 @@ object FrmPattern: TFrmPattern
       OnClick = btnsaveClick
     end
     object btncancel: TToolButton
-      Left = 464
+      Left = 474
       Top = 0
       Hint = 'Cancelar'
       Caption = 'btncancel'
@@ -159,7 +159,7 @@ object FrmPattern: TFrmPattern
       OnClick = btncancelClick
     end
     object ToolButton1: TToolButton
-      Left = 504
+      Left = 515
       Top = 0
       Width = 8
       Caption = 'ToolButton1'
@@ -167,13 +167,13 @@ object FrmPattern: TFrmPattern
       Style = tbsSeparator
     end
     object btnprint: TToolButton
-      Left = 512
+      Left = 523
       Top = 0
       Hint = 'Imprimir'
       ImageIndex = 11
     end
     object Separator4: TToolButton
-      Left = 552
+      Left = 564
       Top = 0
       Width = 8
       Caption = 'Separator4'
@@ -181,7 +181,7 @@ object FrmPattern: TFrmPattern
       Style = tbsSeparator
     end
     object btnclose: TToolButton
-      Left = 560
+      Left = 572
       Top = 0
       Hint = 'Sair'
       Caption = 'btnclose'
@@ -192,7 +192,7 @@ object FrmPattern: TFrmPattern
   object StatusBar1: TStatusBar
     Left = 0
     Top = 441
-    Width = 630
+    Width = 656
     Height = 19
     Panels = <
       item
@@ -211,7 +211,7 @@ object FrmPattern: TFrmPattern
   object Panel1: TPanel
     Left = 0
     Top = 48
-    Width = 630
+    Width = 656
     Height = 49
     Align = alTop
     BevelInner = bvRaised
@@ -317,19 +317,18 @@ object FrmPattern: TFrmPattern
   object PanelRecord: TPanel
     Left = 0
     Top = 97
-    Width = 630
+    Width = 656
     Height = 344
     Align = alClient
     TabOrder = 3
-    ExplicitTop = 91
   end
   object ImageList1: TImageList
     Height = 32
     Width = 32
-    Left = 280
-    Top = 272
+    Left = 184
+    Top = 274
     Bitmap = {
-      494C01010D002400780020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D0024008C0020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2451,10 +2450,10 @@ object FrmPattern: TFrmPattern
   object ImageList2: TImageList
     Height = 32
     Width = 32
-    Left = 376
-    Top = 280
+    Left = 280
+    Top = 282
     Bitmap = {
-      494C01010D001800600020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800740020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4576,10 +4575,10 @@ object FrmPattern: TFrmPattern
   object ImageList3: TImageList
     Height = 32
     Width = 32
-    Left = 472
-    Top = 280
+    Left = 376
+    Top = 282
     Bitmap = {
-      494C01010D001800540020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800680020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -6713,12 +6712,12 @@ object FrmPattern: TFrmPattern
     Top = 177
     object Cdigo1: TMenuItem
       Caption = 'C'#243'digo'
-      ImageIndex = 0
+      ImageIndex = 3
       OnClick = Cdigo1Click
     end
     object odososregistrosdessatabela1: TMenuItem
       Caption = 'Todos os registros dessa tabela'
-      ImageIndex = 3
+      ImageIndex = 1
       OnClick = odososregistrosdessatabela1Click
     end
     object N1: TMenuItem
@@ -6726,12 +6725,12 @@ object FrmPattern: TFrmPattern
     end
     object Registrosincludosnoperodo1: TMenuItem
       Caption = 'Registros inclu'#237'dos no per'#237'odo...'
-      ImageIndex = 1
+      ImageIndex = 0
       OnClick = Registrosincludosnoperodo1Click
     end
     object Registrosalteradosnoperodo1: TMenuItem
       Caption = 'Registros alterados no per'#237'odo...'
-      ImageIndex = 1
+      ImageIndex = 0
       OnClick = Registrosalteradosnoperodo1Click
     end
     object N2: TMenuItem
@@ -6744,10 +6743,10 @@ object FrmPattern: TFrmPattern
     end
   end
   object ImageList4: TImageList
-    Left = 176
-    Top = 273
+    Left = 472
+    Top = 283
     Bitmap = {
-      494C010104000800300010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000800440010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -7017,5 +7016,28 @@ object FrmPattern: TFrmPattern
       6BFECD93FC0FFFFF6000CFF3FC0FFFFF7800C003FC0FFFFF0000C003FFFFFFFF
       001FFFFFFFFFFFFF001FFFFFFFFFFFFF00000000000000000000000000000000
       000000000000}
+  end
+  object PopupMenu2: TPopupMenu
+    Images = ImageList4
+    Left = 480
+    Top = 177
+    object Cdigo2: TMenuItem
+      Caption = 'C'#243'digo'
+      ImageIndex = 3
+      OnClick = Cdigo2Click
+    end
+    object N4: TMenuItem
+      Caption = '-'
+    end
+    object DatadeIncluso1: TMenuItem
+      Caption = 'Data de Inclus'#227'o'
+      ImageIndex = 0
+      OnClick = DatadeIncluso1Click
+    end
+    object DatadeAlterao1: TMenuItem
+      Caption = 'Data de Altera'#231#227'o'
+      ImageIndex = 0
+      OnClick = DatadeAlterao1Click
+    end
   end
 end

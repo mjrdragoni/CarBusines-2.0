@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.ImageList,
   Vcl.ImgList, Vcl.Mask, Vcl.DBCtrls, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  Vcl.ComCtrls, Vcl.ToolWin;
+  Vcl.ComCtrls, Vcl.ToolWin, Vcl.Menus;
 
 type
   TFrmProviders = class(TFrmClients)
@@ -34,6 +34,8 @@ type
     FDTablestatus: TStringField;
     FDTabletp: TStringField;
     procedure FormActivate(Sender: TObject);
+    procedure btnprintClick(Sender: TObject);
+    procedure btnsearchClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -46,6 +48,20 @@ var
 implementation
 
 {$R *.dfm}
+
+uses UnitRelProv, UnitProviersSearch;
+
+procedure TFrmProviders.btnprintClick(Sender: TObject);
+begin
+
+FrmRelProv.ShowModal;
+end;
+
+procedure TFrmProviders.btnsearchClick(Sender: TObject);
+begin
+
+frmprovidersearch.ShowModal;
+end;
 
 procedure TFrmProviders.FormActivate(Sender: TObject);
 begin

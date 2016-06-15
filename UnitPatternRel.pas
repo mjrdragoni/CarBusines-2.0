@@ -27,7 +27,7 @@ type
     ToolBar1: TToolBar;
     btnprint: TToolButton;
     btncancelrel: TToolButton;
-    ToolButton2: TToolButton;
+    ToolButton1: TToolButton;
     procedure btncancelrelClick(Sender: TObject);
   private
     { Private declarations }

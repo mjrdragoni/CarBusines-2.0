@@ -8,10 +8,6 @@ program carrental;
 
 
 
-
-
-
-
 {$R *.dres}
 
 uses
@@ -41,15 +37,29 @@ uses
   UnitWebReserves in 'UnitWebReserves.pas' {FrmWebReserve},
   UnitRelClients in 'UnitRelClients.pas' {FrmRelClients},
   UnitSearchDate in 'UnitSearchDate.pas' {pesqData},
-  UnitSearchString in 'UnitSearchString.pas' {pesqString},
-  UnitUsers in 'UnitUsers.pas' {FrmUsers};
+  UnitClientSearch in 'UnitClientSearch.pas' {frmclientsearch},
+  UnitUsers in 'UnitUsers.pas' {FrmUsers},
+  UnitAppearance in 'UnitAppearance.pas' {FrmAppearance},
+  UnitRelBrands in 'UnitRelBrands.pas' {FrmRelBrands},
+  UnitRelCars in 'UnitRelCars.pas' {FrmRelCars},
+  UnitRelDepartments in 'UnitRelDepartments.pas' {FrmRelDepartments},
+  UnitRelMaint in 'UnitRelMaint.pas' {FrmRelMaint},
+  UnitRelModels in 'UnitRelModels.pas' {FrmRelModels},
+  UnitRelOfficials in 'UnitRelOfficials.pas' {FrmRelOfficials},
+  UnitRelPositions in 'UnitRelPositions.pas' {FrmRelPosition},
+  UnitRelProv in 'UnitRelProv.pas' {FrmRelProv},
+  UnitRelUsers in 'UnitRelUsers.pas' {FrmRelUsers},
+  UnitRelWorkShop in 'UnitRelWorkShop.pas' {FrmRelWorkShop},
+  UnitPatternSearchString in 'UnitPatternSearchString.pas' {frmpatternseachstring},
+  UnitProviersSearch in 'UnitProviersSearch.pas' {frmprovidersearch},
+  UnitCarsSearch in 'UnitCarsSearch.pas' {frmcarsearch};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Amakrits');
+  TStyleManager.TrySetStyle('Carbon');
   Application.CreateForm(TFrmLogin, FrmLogin);
   Application.CreateForm(TFrmPattern, FrmPattern);
   Application.CreateForm(TDM, DM);
@@ -72,7 +82,21 @@ begin
   Application.CreateForm(TFrmWebReserve, FrmWebReserve);
   Application.CreateForm(TFrmRelClients, FrmRelClients);
   Application.CreateForm(TpesqData, pesqData);
-  Application.CreateForm(TpesqString, pesqString);
+  Application.CreateForm(Tfrmclientsearch, frmclientsearch);
   Application.CreateForm(TFrmUsers, FrmUsers);
+  Application.CreateForm(TFrmAppearance, FrmAppearance);
+  Application.CreateForm(TFrmRelBrands, FrmRelBrands);
+  Application.CreateForm(TFrmRelCars, FrmRelCars);
+  Application.CreateForm(TFrmRelDepartments, FrmRelDepartments);
+  Application.CreateForm(TFrmRelMaint, FrmRelMaint);
+  Application.CreateForm(TFrmRelModels, FrmRelModels);
+  Application.CreateForm(TFrmRelOfficials, FrmRelOfficials);
+  Application.CreateForm(TFrmRelPosition, FrmRelPosition);
+  Application.CreateForm(TFrmRelProv, FrmRelProv);
+  Application.CreateForm(TFrmRelUsers, FrmRelUsers);
+  Application.CreateForm(TFrmRelWorkShop, FrmRelWorkShop);
+  Application.CreateForm(Tfrmpatternseachstring, frmpatternseachstring);
+  Application.CreateForm(Tfrmprovidersearch, frmprovidersearch);
+  Application.CreateForm(Tfrmcarsearch, frmcarsearch);
   Application.Run;
 end.

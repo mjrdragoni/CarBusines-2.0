@@ -15,12 +15,6 @@ type
  Trun = (navigation,  enablesbuttons);
   TFrmWebReserve = class(TForm)
     ToolBar1: TToolBar;
-    ToolButton16: TToolButton;
-    btnfirst: TToolButton;
-    btnprevious: TToolButton;
-    btnnext: TToolButton;
-    btnlast: TToolButton;
-    btndel: TToolButton;
     btnsave: TToolButton;
     btnclose: TToolButton;
     StatusBar1: TStatusBar;
@@ -51,6 +45,9 @@ type
     DBEdit9: TDBEdit;
     Label11: TLabel;
     FDTable: TFDTable;
+    DBEdit10: TDBEdit;
+    FDQuery1: TFDQuery;
+    Panel1: TPanel;
     FDTableWebid: TFDAutoIncField;
     FDTableWebid_client: TIntegerField;
     FDTableWebstart_date: TStringField;
@@ -59,38 +56,40 @@ type
     FDTableWebend_hour: TStringField;
     FDTableWebid_car: TIntegerField;
     FDTableWebstatus: TStringField;
-    FDTableWebadd_date: TDateTimeField;
-    DBEdit10: TDBEdit;
-    FDQuery1: TFDQuery;
-    FDTableid: TFDAutoIncField;
+    FDTableWebdate_add: TDateTimeField;
+    FDTableWebdate_alt: TDateTimeField;
+    Label1: TLabel;
+    btnok: TBitBtn;
+    Edit1: TEdit;
+    ToolButton2: TToolButton;
+    FDTableid: TIntegerField;
     FDTableid_client: TIntegerField;
     FDTablestart_date: TStringField;
-    FDTableend_data: TStringField;
-    FDTablestar_hour: TStringField;
+    FDTableend_date: TStringField;
+    FDTablestart_hour: TStringField;
     FDTableend_hour: TStringField;
     FDTableid_car: TIntegerField;
     FDTablestatus: TStringField;
-    FDTableadd_date: TSQLTimeStampField;
-    Panel1: TPanel;
-    LabelStatus: TLabel;
-    ToolButton1: TToolButton;
-    ToolButton2: TToolButton;
-    procedure FormActivate(Sender: TObject);
+    FDTabledate_add: TSQLTimeStampField;
+    FDTabledate_alt: TSQLTimeStampField;
+    labelrc: TLabel;
+    FDQuery2: TFDQuery;
     procedure btnfirstClick(Sender: TObject);
-    procedure btnpreviousClick(Sender: TObject);
     procedure btnnextClick(Sender: TObject);
     procedure btnlastClick(Sender: TObject);
     procedure btndelClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btncloseClick(Sender: TObject);
     procedure btnsaveClick(Sender: TObject);
+    procedure btnokClick(Sender: TObject);
+
 
   private
     Frun: Trun;
-    Procedure Setrun(const Value: Trun);
+
     { Private declarations }
   public
-    Property run: Trun read Frun write Setrun;
+
     { Public declarations }
   end;
 
@@ -125,7 +124,20 @@ begin
 
     if confExcl = IDYES then
     begin
+      FDTableWeb.Open();
       FDTableweb.Delete;
+      DBEdit1.Clear;
+      DBEdit2.Clear;
+      DBEdit3.Clear;
+      DBEdit4.Clear;
+      DBEdit5.Clear;
+      DBEdit6.Clear;
+      DBEdit7.Clear;
+      DBEdit8.Clear;
+      dBEdit9.Clear;
+      DBEdit10.Clear;
+      FDQueryWebReserve.Refresh;
+
 
       post:= 'O registro foi excluido com sucesso.';
       Application.MessageBox(PChar(post),
@@ -147,31 +159,54 @@ end;
 procedure TFrmWebReserve.btnfirstClick(Sender: TObject);
 begin
 
-  FDQueryWebReserve.Open();
- FDQueryWebReserve.First;
+  FDTableWeb.Open();
+  FDQueryWebReserve.Refresh;
+  FDQueryWebReserve.First;
+
 end;
 
 procedure TFrmWebReserve.btnlastClick(Sender: TObject);
 begin
 FDQueryWebReserve.Open();
+FDQueryWebReserve.Refresh;
 FDQueryWebReserve.Last;
+
 
 end;
 
 procedure TFrmWebReserve.btnnextClick(Sender: TObject);
 begin
-FDQueryWebReserve.Open();
+  FDQueryWebReserve.Open();
+  FDQueryWebReserve.Refresh;
   FDQueryWebReserve.Next;
 
 end;
 
-procedure TFrmWebReserve.btnpreviousClick(Sender: TObject);
-begin
-FDQueryWebReserve.Open();
-  FDQueryWebReserve.prior;
+procedure TFrmWebReserve.btnokClick(Sender: TObject);
 
+begin
+    labelrc.Visible:= false;
+    btnsave.Enabled:= true;
+
+strCurrentSQL:= 'SELECT reservation.*, clients.name_conpany_name, clients.cpf_cnpj, ' +
+'clients.phone, clients.email, cars.id, cars.car_name,cars.rental_price ' +
+'FROM reservation INNER JOIN cars ON reservation.id_car = cars.id INNER JOIN ' +
+'clients ON reservation.id_client = clients.id WHERE reservation.id = '+#39+ edit1.Text +#39;
+
+    FDQueryWebReserve.Close;
+    FDQueryWebReserve.SQL.Clear;
+    FDQueryWebReserve.SQL.Add(strCurrentSQL);
+    FDQueryWebReserve.Open;
+
+    if FDQueryWebReserve.FieldByName('status').Value = 'C' then
+    begin
+    labelrc.Visible:= true;
+    btnsave.Enabled:= false;
+    end;
 
 end;
+
+
 
 procedure TFrmWebReserve.btnsaveClick(Sender: TObject);
 var col:integer;
@@ -185,9 +220,14 @@ strCurrentSQL:= 'SELECT id FROM clients WHERE cpf_cnpj = ' +#39+DBedit4.Text +#3
     FDQuery1.SQL.Add(strCurrentSQL);
     FDQuery1.Open;
 
+FDQueryWebReserve.Edit;
+FDQueryWebReserve.FieldByName('status').value:= 'C';
+FDQueryWebReserve.Post;
+
 FDTable.insert();
+FDTableid.Value:= strtoint(edit1.text);
 FDTableid_client.Value:= strtoint(FDQuery1.Fields[0].value);
-FDTableadd_date.AsDateTime:= date;
+
 
     col:= 2;
     while col < FDTableweb.Fields.Count do
@@ -195,26 +235,31 @@ FDTableadd_date.AsDateTime:= date;
     FDTable.Fields[col].Value:=  FDTableweb.Fields[col].Value;
     inc(col);
     end;
+     FDTable.Post;
 
-    FDTable.Post;
-    FDTableWeb.Edit;
-    FDTableWeb.Delete;
 
-  post:= 'O registro foi incluido ou alterado ' +
+
+
+
+DBEdit1.Clear;
+DBEdit2.Clear;
+DBEdit3.Clear;
+DBEdit4.Clear;
+DBEdit5.Clear;
+DBEdit6.Clear;
+DBEdit7.Clear;
+DBEdit8.Clear;
+DBEdit9.Clear;
+DBEdit10.Clear;
+
+  post:= 'A resrva foi confirmada ' +
              'com sucesso.';
   Application.MessageBox(PChar(post),
             'Informação',MB_OK+MB_ICONINFORMATION);
 
 end;
 
-procedure TFrmWebReserve.FormActivate(Sender: TObject);
-begin
- FDQueryWebReserve.Open();
- FDTable.Open();
- FrmMainMenu.FDQueryUsers.open;
- FrmMainMenu.FDQueryUsers.close;
- run:= enablesbuttons;
-end;
+
 
 procedure TFrmWebReserve.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -222,78 +267,4 @@ FDTable.Close;
 FDQueryWebReserve.Close;
 end;
 
-procedure TFrmWebReserve.Setrun(const Value: Trun);
-
-begin
-  Frun:= value;
-
-  case value of
-    enablesbuttons:
-    begin
-      if FDTableWeb.RecordCount > 0 then
-      begin
-
-        btnfirst.Enabled:= true;
-        btnprevious.Enabled:= true;
-        btnnext.Enabled:= true;
-        btnlast.Enabled:= true;
-      end
-      else
-      begin
-
-      end;
-      btnfirst.Enabled:= True;
-      btnprevious.Enabled:= True;
-      btnnext.Enabled:= True;
-      btnlast.Enabled:= True;
-
-      if FDTableWeb.RecordCount = 0 then
-      begin
-
-        btndel.Enabled:= False;
-        btnfirst.Enabled:= False;
-        btnprevious.Enabled:= False;
-        btnnext.Enabled:= False;
-        btnlast.Enabled:= False;
-      end
-      else
-      begin
-
-        btndel.Enabled:= True;
-      end;
-      btnsave.Enabled:= False;
-
-      btnclose.Enabled:= True;
-    end;
-
-     navigation:
-      begin
-
-        if FDTableWeb.Eof = true then
-          begin
-              btnnext.Enabled:= false;
-              btnlast.Enabled:= false;
-          end
-
-            else
-               begin
-                btnnext.Enabled:=true;
-                btnlast.enabled:=true;
-               end ;
-
-            if FDTableWeb.Bof  = true then
-              begin
-                btnfirst.Enabled:=false;
-                btnprevious.enabled:=false;
-              end
-
-              else
-                 begin
-                  btnfirst.Enabled:=true;
-                  btnprevious.enabled:=true;
-                 end;
-
-      end;
-  end;
-end;
 end.

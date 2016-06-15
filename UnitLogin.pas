@@ -42,6 +42,7 @@ type
 var
   FrmLogin: TFrmLogin;
   users: string;
+  iduser: integer;
 
 implementation
 
@@ -75,9 +76,10 @@ begin
   if QueryLogin.
   RecordCount = 1 then
   begin
+   iduser:= QueryLogin.FieldByName('id').AsInteger;
       if (QueryLogin.FieldByName('status').AsString = 'Y') then
          begin
-          Users:= FrmLogin.nameValue.Text;
+          Users:= nameValue.Text;
           QueryLogin.Close;
           FreeAndNil(FrmLogin); //Libera o form de Login da memória
           Application.CreateForm(TFrmMainMenu, FrmMainMenu); //Cria a janela main

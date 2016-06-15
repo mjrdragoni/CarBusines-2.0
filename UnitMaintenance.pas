@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.ImageList,
   Vcl.ImgList, Vcl.StdCtrls, Vcl.Buttons, Vcl.DBCtrls, Vcl.ExtCtrls,
-  Vcl.ComCtrls, Vcl.ToolWin, Vcl.Mask;
+  Vcl.ComCtrls, Vcl.ToolWin, Vcl.Mask, Vcl.Menus;
 
 type
   TFrmMaintenance = class(TFrmPattern)
@@ -83,6 +83,9 @@ begin
   inherited;
 FDQueryWorkshops.Open();
 FDQueryCars.Open();
+datetimepicker1.date:= now;
+datetimepicker2.date:= now;
+
 end;
 
 procedure TFrmMaintenance.FormClose(Sender: TObject; var Action: TCloseAction);

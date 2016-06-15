@@ -320,15 +320,16 @@ create database CarRent
 	); 
 
 	create table reservation(
-		id int identity(1,1) not null,
+		id int not null,
 		id_client int not null,			
 		start_date varchar(10) not null,
-		end_data varchar(10) not null,
-		star_hour varchar(10) not null,
+		end_date varchar(10) not null,
+		start_hour varchar(10) not null,
 		end_hour varchar(10) not null,
 		id_car int not null,
 		status char(1) not null,
-		add_date datetime not null,
+		date_add datetime,
+		date_alt datetime,		
 		constraint PK_reservation_id
 		primary key (id), 
 		constraint FK_reservation_clients
@@ -381,17 +382,4 @@ create database CarRent
  
 	 ); 
 
-	create table cars_images(
-		id int identity(1,1) not null,
-		id_car int not null,	
-		image1 image,
-		image2 image,
-		image3 image,
-		image4 image,
-		image5 image,
-		constraint PK_cars_images_id
-		primary key (id), 
-		constraint FK_cars_images_cars
-		foreign key (id_car) references cars (id),
-		
-	);
+	

@@ -3,9 +3,9 @@ object FrmWebReserve: TFrmWebReserve
   Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = 'Reservas de Aluguel Efetuadas pelo Site'
+  Caption = 'Confirma'#231#227'o de Reservas Efetuadas pelo Site'
   ClientHeight = 341
-  ClientWidth = 605
+  ClientWidth = 609
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,105 +14,13 @@ object FrmWebReserve: TFrmWebReserve
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnActivate = FormActivate
   OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
-  object ToolBar1: TToolBar
-    Left = 0
-    Top = 0
-    Width = 605
-    Height = 48
-    AutoSize = True
-    BorderWidth = 1
-    ButtonHeight = 40
-    ButtonWidth = 39
-    Caption = 'ToolBar1'
-    DisabledImages = ImageList3
-    EdgeBorders = [ebTop, ebBottom]
-    HotImages = ImageList2
-    Images = ImageList1
-    ParentShowHint = False
-    ShowHint = True
-    TabOrder = 0
-    object ToolButton16: TToolButton
-      Left = 0
-      Top = 0
-      Width = 142
-      Caption = 'ToolButton16'
-      ImageIndex = 11
-      Style = tbsSeparator
-    end
-    object btnfirst: TToolButton
-      Left = 142
-      Top = 0
-      Caption = 'btnfirst'
-      ImageIndex = 2
-      OnClick = btnfirstClick
-    end
-    object btnprevious: TToolButton
-      Left = 181
-      Top = 0
-      Caption = 'btnprevious'
-      ImageIndex = 3
-      OnClick = btnpreviousClick
-    end
-    object btnnext: TToolButton
-      Left = 220
-      Top = 0
-      Caption = 'btnnext'
-      ImageIndex = 4
-      OnClick = btnnextClick
-    end
-    object btnlast: TToolButton
-      Left = 259
-      Top = 0
-      Caption = 'btnlast'
-      ImageIndex = 5
-      OnClick = btnlastClick
-    end
-    object ToolButton1: TToolButton
-      Left = 298
-      Top = 0
-      Width = 8
-      Caption = 'ToolButton1'
-      ImageIndex = 12
-      Style = tbsSeparator
-    end
-    object btndel: TToolButton
-      Left = 306
-      Top = 0
-      Caption = 'btndel'
-      ImageIndex = 8
-      OnClick = btndelClick
-    end
-    object btnsave: TToolButton
-      Left = 345
-      Top = 0
-      Caption = 'btnsave'
-      ImageIndex = 9
-      OnClick = btnsaveClick
-    end
-    object ToolButton2: TToolButton
-      Left = 384
-      Top = 0
-      Width = 8
-      Caption = 'ToolButton2'
-      ImageIndex = 12
-      Style = tbsSeparator
-    end
-    object btnclose: TToolButton
-      Left = 392
-      Top = 0
-      Caption = 'btnclose'
-      ImageIndex = 11
-      OnClick = btncloseClick
-    end
-  end
   object StatusBar1: TStatusBar
     Left = 0
     Top = 322
-    Width = 605
+    Width = 609
     Height = 19
     Panels = <
       item
@@ -130,188 +38,76 @@ object FrmWebReserve: TFrmWebReserve
   end
   object PanelRecord: TPanel
     Left = 0
-    Top = 97
-    Width = 605
-    Height = 225
+    Top = 49
+    Width = 609
+    Height = 273
     Align = alClient
-    TabOrder = 2
+    TabOrder = 1
     object Label2: TLabel
       Left = 18
-      Top = 35
+      Top = 57
       Width = 33
       Height = 13
       Caption = 'Cliente'
     end
     object Label4: TLabel
       Left = 405
-      Top = 35
+      Top = 57
       Width = 19
       Height = 13
       Caption = 'CPF'
     end
     object Label3: TLabel
       Left = 18
-      Top = 115
+      Top = 137
       Width = 92
       Height = 13
       Caption = 'Data para Retirada'
     end
     object Label5: TLabel
       Left = 196
-      Top = 115
+      Top = 137
       Width = 89
       Height = 13
       Caption = 'Data para Entrega'
     end
     object Label6: TLabel
       Left = 366
-      Top = 115
+      Top = 137
       Width = 142
       Height = 13
       Caption = 'Hora para Retirada e Entrega'
     end
     object Label7: TLabel
       Left = 94
-      Top = 160
+      Top = 182
       Width = 84
       Height = 13
       Caption = 'C'#243'digo do Ve'#237'culo'
     end
     object Label8: TLabel
       Left = 272
-      Top = 160
+      Top = 182
       Width = 78
       Height = 13
       Caption = 'Nome do Ve'#237'culo'
     end
     object Label9: TLabel
       Left = 20
-      Top = 72
+      Top = 94
       Width = 28
       Height = 13
       Caption = 'E-mail'
     end
     object Label10: TLabel
       Left = 398
-      Top = 72
+      Top = 94
       Width = 42
       Height = 13
       Caption = 'Telefone'
     end
-    object DBEdit1: TDBEdit
-      Left = 69
-      Top = 32
-      Width = 291
-      Height = 21
-      DataField = 'name_conpany_name'
-      DataSource = DSWebReserve
-      ReadOnly = True
-      TabOrder = 0
-    end
-    object DBEdit2: TDBEdit
-      Left = 287
-      Top = 112
-      Width = 73
-      Height = 21
-      DataField = 'end_date'
-      DataSource = DSWebReserve
-      ReadOnly = True
-      TabOrder = 1
-    end
-    object DBEdit3: TDBEdit
-      Left = 117
-      Top = 112
-      Width = 73
-      Height = 21
-      DataField = 'start_date'
-      DataSource = DSWebReserve
-      ReadOnly = True
-      TabOrder = 2
-    end
-    object DBEdit4: TDBEdit
-      Left = 454
-      Top = 32
-      Width = 130
-      Height = 21
-      DataField = 'cpf_cnpj'
-      DataSource = DSWebReserve
-      ReadOnly = True
-      TabOrder = 3
-    end
-    object DBEdit5: TDBEdit
-      Left = 514
-      Top = 112
-      Width = 70
-      Height = 21
-      DataField = 'end_hour'
-      DataSource = DSWebReserve
-      ReadOnly = True
-      TabOrder = 4
-    end
-    object DBEdit6: TDBEdit
-      Left = 193
-      Top = 157
-      Width = 51
-      Height = 21
-      DataField = 'id_car'
-      DataSource = DSWebReserve
-      ReadOnly = True
-      TabOrder = 5
-    end
-    object DBEdit7: TDBEdit
-      Left = 363
-      Top = 157
-      Width = 166
-      Height = 21
-      DataField = 'car_name'
-      DataSource = DSWebReserve
-      ReadOnly = True
-      TabOrder = 6
-    end
-    object DBEdit8: TDBEdit
-      Left = 69
-      Top = 69
-      Width = 291
-      Height = 21
-      DataField = 'email'
-      DataSource = DSWebReserve
-      ReadOnly = True
-      TabOrder = 7
-    end
-    object DBEdit9: TDBEdit
-      Left = 454
-      Top = 69
-      Width = 130
-      Height = 21
-      DataField = 'phone'
-      DataSource = DSWebReserve
-      ReadOnly = True
-      TabOrder = 8
-    end
-  end
-  object Panel1: TPanel
-    Left = 0
-    Top = 48
-    Width = 605
-    Height = 49
-    Align = alTop
-    BevelInner = bvRaised
-    TabOrder = 3
-    object LabelStatus: TLabel
-      Left = 523
-      Top = 16
-      Width = 59
-      Height = 13
-      Caption = 'Bloqueado'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
     object Label11: TLabel
-      Left = 20
+      Left = 24
       Top = 17
       Width = 124
       Height = 13
@@ -323,23 +119,262 @@ object FrmWebReserve: TFrmWebReserve
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object DBEdit10: TDBEdit
-      Left = 150
-      Top = 14
-      Width = 121
+    object DBEdit1: TDBEdit
+      Left = 69
+      Top = 54
+      Width = 291
       Height = 21
-      DataField = 'add_date'
+      DataField = 'name_conpany_name'
       DataSource = DSWebReserve
       ReadOnly = True
       TabOrder = 0
+    end
+    object DBEdit2: TDBEdit
+      Left = 287
+      Top = 134
+      Width = 73
+      Height = 21
+      DataField = 'end_date'
+      DataSource = DSWebReserve
+      ReadOnly = True
+      TabOrder = 1
+    end
+    object DBEdit3: TDBEdit
+      Left = 117
+      Top = 134
+      Width = 73
+      Height = 21
+      DataField = 'start_date'
+      DataSource = DSWebReserve
+      ReadOnly = True
+      TabOrder = 2
+    end
+    object DBEdit4: TDBEdit
+      Left = 454
+      Top = 54
+      Width = 130
+      Height = 21
+      DataField = 'cpf_cnpj'
+      DataSource = DSWebReserve
+      ReadOnly = True
+      TabOrder = 3
+    end
+    object DBEdit5: TDBEdit
+      Left = 514
+      Top = 134
+      Width = 70
+      Height = 21
+      DataField = 'end_hour'
+      DataSource = DSWebReserve
+      ReadOnly = True
+      TabOrder = 4
+    end
+    object DBEdit6: TDBEdit
+      Left = 193
+      Top = 179
+      Width = 51
+      Height = 21
+      DataField = 'id_car'
+      DataSource = DSWebReserve
+      ReadOnly = True
+      TabOrder = 5
+    end
+    object DBEdit7: TDBEdit
+      Left = 363
+      Top = 179
+      Width = 166
+      Height = 21
+      DataField = 'car_name'
+      DataSource = DSWebReserve
+      ReadOnly = True
+      TabOrder = 6
+    end
+    object DBEdit8: TDBEdit
+      Left = 69
+      Top = 91
+      Width = 291
+      Height = 21
+      DataField = 'email'
+      DataSource = DSWebReserve
+      ReadOnly = True
+      TabOrder = 7
+    end
+    object DBEdit9: TDBEdit
+      Left = 454
+      Top = 91
+      Width = 130
+      Height = 21
+      DataField = 'phone'
+      DataSource = DSWebReserve
+      ReadOnly = True
+      TabOrder = 8
+    end
+    object DBEdit10: TDBEdit
+      Left = 154
+      Top = 14
+      Width = 121
+      Height = 21
+      DataField = 'date_add'
+      DataSource = DSWebReserve
+      ReadOnly = True
+      TabOrder = 9
+    end
+    object ToolBar1: TToolBar
+      Left = 486
+      Top = 210
+      Width = 121
+      Height = 61
+      Align = alCustom
+      ButtonHeight = 52
+      ButtonWidth = 47
+      Caption = 'ToolBar1'
+      DisabledImages = ImageList3
+      EdgeBorders = [ebTop, ebBottom]
+      EdgeInner = esNone
+      EdgeOuter = esNone
+      HotImages = ImageList2
+      Images = ImageList1
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 10
+      Transparent = True
+      object btnsave: TToolButton
+        Left = 0
+        Top = 0
+        Hint = 'Confirmar Reserva'
+        Caption = 'btnsave'
+        ImageIndex = 9
+        OnClick = btnsaveClick
+      end
+      object ToolButton2: TToolButton
+        Left = 47
+        Top = 0
+        Width = 10
+        Caption = 'ToolButton2'
+        ImageIndex = 13
+        Style = tbsSeparator
+      end
+      object btnclose: TToolButton
+        Left = 57
+        Top = 0
+        Hint = 'Sair'
+        Caption = 'btnclose'
+        ImageIndex = 11
+        Wrap = True
+        OnClick = btncloseClick
+      end
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 609
+    Height = 49
+    Align = alTop
+    BevelInner = bvRaised
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 18
+      Top = 15
+      Width = 256
+      Height = 13
+      Caption = 'Digite o N'#250'mero da Reserva a ser Confirmada'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clNavy
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object labelrc: TLabel
+      Left = 477
+      Top = 15
+      Width = 115
+      Height = 13
+      Caption = 'Reserva Confirmada'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Visible = False
+    end
+    object btnok: TBitBtn
+      Left = 414
+      Top = 15
+      Width = 30
+      Height = 21
+      Glyph.Data = {
+        36060000424D3606000000000000360000002800000020000000100000000100
+        18000000000000060000C40E0000C40E00000000000000000000FF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FF006600006600FF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF656565656565FF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FF0066001EB2311FB133006600FF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF6565659A9A9A9A9A9A65
+        6565FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FF00660031C24F22B7381AB02D21B437006600FF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF656565ABABAB9E9E9E9797979C
+        9C9C656565FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        00660047D36D3BCB5E25A83B0066001BA92E1DB132006600FF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FF656565BFBFBFB5B5B598989865656594
+        9494999999656565FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF006600
+        4FD67953DE7F31B54D006600FF00FF006600179D271EAE31006600FF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FF656565C4C4C4CACACAA5A5A5656565FF00FF65
+        65658C8C8C989898656565FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        00660041C563006600FF00FFFF00FFFF00FFFF00FF00660019AA2B006600FF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FF656565B5B5B5656565FF00FFFF00FFFF
+        00FFFF00FF656565939393656565FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FF006600FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF006600149D210066
+        00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF656565FF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FF6565658A8A8A656565FF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF0066
+        00006600FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FF656565656565FF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FF006600006600FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FF656565656565FF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
+      NumGlyphs = 2
+      TabOrder = 0
+      OnClick = btnokClick
+    end
+    object Edit1: TEdit
+      Left = 287
+      Top = 15
+      Width = 121
+      Height = 21
+      TabOrder = 1
     end
   end
   object ImageList1: TImageList
     Height = 32
     Width = 32
+    Left = 48
     Top = 8
     Bitmap = {
-      494C01010C002400680020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C0024007C0020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2461,10 +2496,10 @@ object FrmWebReserve: TFrmWebReserve
   object ImageList2: TImageList
     Height = 32
     Width = 32
-    Left = 568
-    Top = 8
+    Left = 560
+    Top = 56
     Bitmap = {
-      494C01010C001800500020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C001800640020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4586,10 +4621,10 @@ object FrmWebReserve: TFrmWebReserve
   object ImageList3: TImageList
     Height = 32
     Width = 32
-    Left = 560
-    Top = 56
+    Left = 456
+    Top = 48
     Bitmap = {
-      494C01010C001800440020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C001800580020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -6711,10 +6746,11 @@ object FrmWebReserve: TFrmWebReserve
   object FDTableWeb: TFDTable
     IndexFieldNames = 'id'
     Connection = DM.FDConnectionWeb
+    UpdateOptions.AssignedValues = [uvEDelete, uvEInsert, uvEUpdate]
     UpdateOptions.UpdateTableName = 'u130462423_carrt.reservation'
     TableName = 'u130462423_carrt.reservation'
-    Left = 344
-    Top = 48
+    Left = 256
+    Top = 8
     object FDTableWebid: TFDAutoIncField
       FieldName = 'id'
       Origin = 'id'
@@ -6762,10 +6798,15 @@ object FrmWebReserve: TFrmWebReserve
       FixedChar = True
       Size = 3
     end
-    object FDTableWebadd_date: TDateTimeField
+    object FDTableWebdate_add: TDateTimeField
       AutoGenerateValue = arDefault
-      FieldName = 'add_date'
-      Origin = 'add_date'
+      FieldName = 'date_add'
+      Origin = 'date_add'
+    end
+    object FDTableWebdate_alt: TDateTimeField
+      AutoGenerateValue = arDefault
+      FieldName = 'date_alt'
+      Origin = 'date_alt'
     end
   end
   object FDQueryWebReserve: TFDQuery
@@ -6792,13 +6833,12 @@ object FrmWebReserve: TFrmWebReserve
     Connection = DM.FDConnection1
     UpdateOptions.UpdateTableName = 'CarRent.dbo.reservation'
     TableName = 'CarRent.dbo.reservation'
-    Left = 416
-    Top = 56
-    object FDTableid: TFDAutoIncField
+    Left = 192
+    object FDTableid: TIntegerField
       FieldName = 'id'
       Origin = 'id'
-      ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = True
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
     end
     object FDTableid_client: TIntegerField
       FieldName = 'id_client'
@@ -6811,15 +6851,15 @@ object FrmWebReserve: TFrmWebReserve
       Required = True
       Size = 10
     end
-    object FDTableend_data: TStringField
-      FieldName = 'end_data'
-      Origin = 'end_data'
+    object FDTableend_date: TStringField
+      FieldName = 'end_date'
+      Origin = 'end_date'
       Required = True
       Size = 10
     end
-    object FDTablestar_hour: TStringField
-      FieldName = 'star_hour'
-      Origin = 'star_hour'
+    object FDTablestart_hour: TStringField
+      FieldName = 'start_hour'
+      Origin = 'start_hour'
       Required = True
       Size = 10
     end
@@ -6841,10 +6881,13 @@ object FrmWebReserve: TFrmWebReserve
       FixedChar = True
       Size = 1
     end
-    object FDTableadd_date: TSQLTimeStampField
-      FieldName = 'add_date'
-      Origin = 'add_date'
-      Required = True
+    object FDTabledate_add: TSQLTimeStampField
+      FieldName = 'date_add'
+      Origin = 'date_add'
+    end
+    object FDTabledate_alt: TSQLTimeStampField
+      FieldName = 'date_alt'
+      Origin = 'date_alt'
     end
   end
   object FDQuery1: TFDQuery
@@ -6852,6 +6895,13 @@ object FrmWebReserve: TFrmWebReserve
     SQL.Strings = (
       'SELECT id FROM clients')
     Left = 288
+    Top = 273
+  end
+  object FDQuery2: TFDQuery
+    Connection = DM.FDConnection1
+    SQL.Strings = (
+      'SELECT * FROM reservation')
+    Left = 368
     Top = 273
   end
 end

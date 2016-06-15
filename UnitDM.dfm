@@ -4,14 +4,16 @@ object DM: TDM
   Width = 268
   object FDConnection1: TFDConnection
     Params.Strings = (
-      'SERVER=NOTE-DRAGONI\SQLEXPRESS'
-      'OSAuthent=Yes'
+      'Server=192.168.3.110'
+      'OSAuthent=No'
       'ApplicationName=Architect'
       'Workstation=NOTE-DRAGONI'
       'DATABASE=CarRent'
       'MARS=yes'
+      'User_Name=sa'
+      'Password=1983dragoni'
+      'ODBCAdvanced=Failover_Partner=192.168.3.101'
       'DriverID=MSSQL')
-    Connected = True
     LoginPrompt = False
     Left = 64
     Top = 24
@@ -28,7 +30,6 @@ object DM: TDM
       'Database= u130462423_carrt'
       'Password=1983dragoni'
       'DriverID=MySQL')
-    Connected = True
     LoginPrompt = False
     Left = 168
     Top = 24
